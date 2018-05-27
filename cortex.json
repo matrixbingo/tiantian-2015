@@ -1,0 +1,31 @@
+{
+  "name": "tiantian",
+  "version": "0.1.0",
+  "description": "",
+  "css": "./dist/css/merchant.css",
+  "devDependencies": {
+    "assert": "*"
+  },
+  "dependencies": {
+
+  },
+  "repository": "git://github.com/roderickWang/counter.git",
+  "keywords": [
+    "orlitia"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "liang.wang",
+    "email": "liang.wang.sh@dianping.com"
+  },
+  "bugs": {
+    "url": "http://github.com/roderickWang/counter/issues"
+  },
+  "homepage": "http://github.com/roderickWang/counter",
+  "directories": {
+    "src": "dist"
+  },
+  "scripts": {
+    "prebuild": "./node_modules/.bin/gulp"
+  }
+}

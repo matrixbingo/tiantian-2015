@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+    <title>天天生财</title>
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <style type="text/css">
+    </style>
+    <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+<!-- Navbar -->
+<div id="navbar"></div>
+
+<!-- Subhead  -->
+<div id="subhead"></div>
+
+<div class="container">
+    <div class="row">
+        <div id="sidebar"></div>
+        <div id="container"></div>
+    </div>
+</div>
+
+<!-- Footer  -->
+<div id="footer"></div>
+
+<div id="window" class="easyui-window" title="增加绑定店铺" data-options="modal:true,closed:true,iconCls:'icon-save'"
+     style="width:700px;height:400px;padding:10px;">
+    <div id="windowContent"></div>
+</div>
+
+<script type="text/javascript" src="../lib/loaderHandler.js"></script>
+ 
+<script language="JavaScript">
+    loads(loaderHandler.loaders.task, function () {
+        $.each(main.modules.taskBase, function (i, v) {
+            $('#' + i).load(v);
+        });
+        $('#container').load(main.modules.tasks.container);
+
+       // $('#container').load(main.modules.tasks.container);
+
+    });
+</script>
+</body>
+</html>

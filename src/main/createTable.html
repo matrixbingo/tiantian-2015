@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+    <script language="JavaScript">
+
+        if (Array.prototype.hasOwnProperty('contains')) {
+            win.error('Utils.js ：Array 对象已含有' + 'contains' + '  属性, 使用请重载，以免冲突 ');
+        }
+        Array.prototype.contains = function (obj) {
+            var i = this.length;
+            while (i--) {
+                if (this[i] === obj) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        var FormUtil = {};
+        /**
+         * 创建tab bootstrap
+         * radio
+         */
+        FormUtil.createTabRadio = function (id, titles, json) {
+            var rarios = [], content, title;
+            rarios.push('<table class=\"table table-hover\">');
+            rarios.push('<thead>');
+
+            rarios.push('<tr>');
+            for (var key in titles) {
+                rarios.push('<th class="' + titles[key][1] + '">' + titles[key][0] + '</th>');
+            }
+            rarios.push('</tr>');
+            rarios.push('</thead>');
+            rarios.push('<tbody>');
+            $.each(json, function (i, value) {
+                if (value) {
+                    rarios.push('<tr class="tr-table-content">');
+                    for (var key in titles) {
+                        content = value[key];
+                        title = titles[key];
+                        if (title[2] && title[2].toLowerCase() == 'text') {
+                            rarios.push('<td>' + content + '</td>');
+                        } else if (title[2] && title[2].toLowerCase() == 'radio') {
+                            var checked = title[3];
+                            rarios.push('<td><div class="radio" style="padding: 0px 0px 0px 40px;"><input type="radio" name="optionsRadios" value="' + content + (checked == content ? '" checked />' : '"/>') + '</div></td>');
+                        }
+                    }
+                    rarios.push('</tr>');
+                }
+            });
+            rarios.push('</tbody>');
+            rarios.push('</table>');
+            $("#" + id).empty().append(rarios.join(''));
+        };
+
+        /**
+         * 创建tab bootstrap
+         * 合并
+         */
+        FormUtil.createTab = function (id, titles, json) {
+            debugger;
+            var rarios = [], content, title;
+            rarios.push('<table class=\"table table-hover\">');
+            rarios.push('<thead>');
+
+            rarios.push('<tr>');
+            for (var key in titles) {
+                rarios.push('<th class="' + titles[key][1] + '">' + titles[key][0] + '</th>');
+            }
+            rarios.push('</tr>');
+            rarios.push('</thead>');
+            rarios.push('<tbody>');
+            $.each(json, function (i, value) {
+                if (value) {
+                    rarios.push('<tr class="tr-table-content">');
+                    for (var key in titles) {
+                        content = value[key];
+                        title = titles[key];
+                        if (title[2] && title[2].toLowerCase() == 'text') {
+                            rarios.push('<td>' + content + '</td>');
+                        } else if (title[2] && title[2].toLowerCase() == 'radio') {
+                            var checked = title[3];
+                            rarios.push('<td><div class="radio" style="padding: 0px 0px 0px 40px;"><input type="radio" name="optionsRadios" value="' + content + (checked == content ? '" checked />' : '"/>') + '</div></td>');
+                        }
+                    }
+                    rarios.push('</tr>');
+                }
+            });
+            rarios.push('</tbody>');
+            rarios.push('</table>');
+            $("#" + id).empty().append(rarios.join(''));
+        };
+
+        /**
+         * 创建tab bootstrap
+         * radio rowspan
+         */
+        FormUtil.createTabRowSpan = function (id, titles, json) {
+            var rarios = [], content, title, list, len;
+            var nkey = titles['rowspan'][0];
+            var radios = titles[nkey][2];
+            var name = "optionsRadios";
+
+            var mergeTent = function(item, radios){
+                debugger;
+                var rs =[];
+                $.each(radios.rows, function(i, obj){
+                    rs.push(item[obj])
+                });
+                return rs.join(' ');
+            };
+
+            rarios.push('<table border="1" bordercolor="red" class=\"table table-hover\">');
+            rarios.push('<thead>');
+            rarios.push('<tr>');
+            for (var key in titles) {
+                if (key != 'rowspan' && key != nkey) {
+                    rarios.push('<th class="' + titles[key][1] + '">' + titles[key][0] + '</th>');
+                }else if(key == nkey){
+                    rarios.push('<th class="' + titles[key][1] + '">' + radios.title + '</th>');
+                    rarios.push('<th class="' + titles[key][1] + '">' + titles[key][0] + '</th>');
+                }
+            }
+            rarios.push('</tr>');
+            rarios.push('</thead>');
+            rarios.push('<tbody>');
+            $.each(json, function (i, obj) {
+                if (obj) {
+                    list = obj[nkey];
+                    rarios.push('<tr class="tr-table-content">');
+                    name = name + i;
+                    for (var key in titles) {
+                        content = obj[key];
+                        title = titles[key];
+                        if (title.contains('rowspan')) {
+                            rarios.push('<td rowspan="' + list.length + '">' + content + '</td>');
+                        } else if (key == nkey && list.length > 0) {
+                            var item = list[0];
+                            rarios.push('<td><div class="radio" style="padding: 0px 0px 0px 40px;"><input type="radio" name="' + name + '" value="' + item[nkey] + (radios.checked == item.checked ? '" checked />' : '"/>') + '</div></td>');
+                            rarios.push('<td>' + mergeTent(item, radios) + '</td>');
+                        }
+                    }
+                    rarios.push('</tr>');
+                    for (var j = 0; j < list.length; j++) {
+                        if (j > 0) {
+                            var item = list[j];
+                            rarios.push('<tr class="tr-table-content">');
+                            rarios.push('<td><div class="radio" style="padding: 0px 0px 0px 40px;"><input type="radio" name="' + name + '" value="' + item[nkey] + (radios.checked == item.checked ? '" checked />' : '"/>') + '</div></td>');
+                            rarios.push('<td>' + mergeTent(item,radios) + '</td>');
+                            rarios.push('</tr>');
+                        }
+                    }
+                }
+            });
+            rarios.push('</tbody>');
+            rarios.push('</table>');
+            $("#" + id).empty().append(rarios.join(''));
+        }
+
+    </script>
+</head>
+
+<body>
+
+<div id="tablediv"></div>
+
+<div id="tablediv11"></div>
+
+</body>
+
+<script language="JavaScript">
+    var list = [
+        {
+            "id": 4,
+            "status": 0,
+            "userId": 2,
+            "checkTime": null,
+            "createTime": null,
+            "province": 10,
+            "city": 101,
+            "platId": 1,
+            "platName": "sa1111s",
+            "shopName": "dsfadsf",
+            "linkUrl": "www.osch",
+            "wwId": "2332323232",
+            "town": 787,
+            "provinceName": "江苏省",
+            "cityName": "苏州市",
+            "townName": "昆山市",
+            "validCode": "233232"
+        },
+        {
+            "id": 5,
+            "status": 1,
+            "userId": 1,
+            "checkTime": null,
+            "createTime": null,
+            "province": 10,
+            "city": 101,
+            "platId": 2,
+            "platName": "sas",
+            "shopName": "adsf",
+            "linkUrl": "http://www.oschina.net/question/1037465_162795",
+            "wwId": "12312312",
+            "town": 787,
+            "provinceName": "江苏省",
+            "cityName": "苏州市",
+            "townName": "昆山市",
+            "validCode": "22121"
+        },
+
+        {
+            "id": 16,
+            "status": 0,
+            "userId": 1,
+            "checkTime": null,
+            "createTime": null,
+            "province": 10,
+            "city": 101,
+            "platId": 1,
+            "platName": "sas",
+            "shopName": "收费电视",
+            "linkUrl": "http://www.oschina.net/question/1037465_162795",
+            "wwId": "7654332",
+            "town": 787,
+            "provinceName": "江苏省",
+            "cityName": "苏州市",
+            "townName": "昆山市",
+            "validCode": "111"
+        },
+        {
+            "id": 17,
+            "status": 1,
+            "userId": "印业制造",
+            "checkTime": null,
+            "createTime": null,
+            "province": 10,
+            "city": 110,
+            "platId": 1,
+            "platName": "sas",
+            "shopName": "11111",
+            "linkUrl": "111111111111111",
+            "wwId": "11111",
+            "town": 787,
+            "provinceName": "江苏省",
+            "cityName": "舟山市",
+            "townName": "昆山市",
+            "validCode": "11"
+        }
+    ]
+
+    var title = {
+        userId: ['营业执照', 'title-width-10', 'radio', 2],
+        validCode: ['校验码', 'title-width-10', 'text'],
+        shopName: ['店铺名称', 'title-width-10', 'text'],
+        linkUrl: ['店铺商品校验链接', 'title-width-20', 'text'],
+        wwId: ['店铺主旺旺ID', 'title-width-10', 'text'],
+        provinceName: ['省份', 'title-width-10', 'text'],
+        cityName: ['城市', 'title-width-10', 'text'],
+        townName: ['区县', 'title-width-10', 'text']
+    }
+
+    FormUtil.createTab('tablediv', title, list);
+
+    var list1 = [
+        {
+            "id": 1,
+            "status": 0,
+            "userId": 2,
+            "checkTime": "checkTime",
+            "createTime": "checkTime",
+            "province": 10,
+            "city": [
+                {"city": 1, "checkTime": 'ac1', "province": 'p1', checked:0},
+                {"city": 2, "checkTime": 'ac2', "province": 'p2', checked:1},
+                {"city": 3, "checkTime": 'ac3', "province": 'p3', checked:0}
+            ]
+        },
+        {
+            "id": 2,
+            "status": 0,
+            "userId": 2,
+            "checkTime": "checkTime",
+            "createTime": "checkTime",
+            "province": 10,
+            "city": [
+                {"city": 1, "checkTime": 'bc1', "province": 'bp1', checked:0},
+                {"city": 2, "checkTime": 'bc1', "province": 'bp1', checked:1}
+            ]
+        },
+        {
+            "id": 3,
+            "status": 0,
+            "userId": 2,
+            "checkTime": "checkTime",
+            "createTime": "checkTime",
+            "province": 10,
+            "city": [
+                {"city": 1, "checkTime": 'cc1', "province": 'cp1', checked:1},
+                {"city": 2, "checkTime": 'cc1', "province": 'cp2', checked:0}
+            ]
+        }
+    ];
+
+    var title1 = {
+        id: ['营业执照', 'title-width-10', 'rowspan'],
+        status: ['校验码', 'title-width-10', 'rowspan'],
+        checkTime: ['店铺名称', 'title-width-10', 'rowspan'],
+        createTime: ['店铺商品校验链接', 'title-width-20', 'rowspan'],
+        city: ['收款账号', 'title-width-10', {'radio': 'city', title:'选择', checked: 1, rows: ['checkTime', 'province']}],
+        rowspan: ['city']
+    }
+
+    FormUtil.createTabRowSpan('tablediv11', title1, list1);
+
+</script>
+</html>

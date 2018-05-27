@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+      <script type="text/javascript" src="../js/common/jquery/jquery-1.7.1.min.js"></script>
+      <!-- 代码高亮 -->
+      <script type="text/javascript" src="js/prettify.js"></script>
+      <link rel="stylesheet" type="text/css" href="js/prettify.css">
+
+      <!--1.4 -->
+      <link rel="stylesheet" type="text/css" href="../js/common/jquery-easyui-1.4/easyui.css">
+      <link rel="stylesheet" type="text/css" href="../js/common/jquery-easyui-1.4/icon.css">
+      <script type="text/javascript" src="../js/common/jquery-easyui-1.4/jquery.easyui.min.js"></script>
+
+      <!--1.2 -->
+      <!--<link rel="stylesheet" type="text/css" href="../css/easyui/gray/easyui.css">-->
+      <!--<link rel="stylesheet" type="text/css" href="../css/easyui/icon.css">-->
+      <!--<script type="text/javascript" src="../js/common/jquery/jquery.easyui.min.js"></script>-->
+
+      <!-- msg -->
+      <link rel="stylesheet" type="text/css" href="../js/common/jquery.msg/jquery.msg.css">
+      <script type="text/javascript" src="../js/common/jquery.msg/jquery.msg.js"></script>
+
+      <!-- 图表 -->
+      <script type="text/javascript" src="../js/highcharts/highcharts-4.0.3.js"></script>
+
+      <!-- 工具类 -->
+      <script type="text/javascript" src="../js/common/utils.js"></script>
+
+    <title>demo1.4</title>
+    <style type="text/css">
+      h1{
+        text-align : center;
+        font-size : 200%
+      }
+      h3{
+        padding: 0;
+        margin: 0 0 10px;
+      }
+      #wrap{
+        width: 900px;
+        margin: 0 auto 50px;
+      }
+      #info{
+        text-align: center;
+        margin: 50px 0 0;
+      }
+      .play-ground{
+        background: #eeeeee;
+        margin: 0 0 20px;
+        padding: 10px;
+      }
+      .spacer{
+        height: 40px;
+      }
+      .btn{
+        background: #cccccc;
+        float: left;
+        display: inline;
+        font-family: arial;
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 3px 7px;
+        margin: 0 8px 0 0;
+        cursor: pointer;
+      }
+      .custom-theme .jquery-msg-content{
+        border: 10px solid #333333;
+        background: white;
+        font-family: Monaco, 'Lucida Console', monospace;
+      }
+      .btn-wrap{
+        text-align: center;
+        margin: 0;
+      }
+      .btn-wrap span{
+        font-weight: bolder;
+        padding: 0 8px 0 0;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    </style>
+      <script type="text/javascript" charset="utf-8">
+          // wrap everything in document ready event
+          $( function() {
+              $("pre").addClass("prettyprint");
+              prettyPrint();
+
+              $('#id1').bind('click', function () {
+                  var data = [
+                      {"id": "50", "name": "50"},
+                      {"id": "100", "name": "100"}
+                  ];
+                  var obj = {'id': 'select_top', 'width': 100, 'height': 50, 'editable': true, 'data': data, 'value': 50 };
+                  FormUtil.initSelect(obj);
+              });
+
+              $('#id2').bind('click', function () {
+                  var url1 = 'http://erp.yihaodian.com/groupon/intelligence/getCategoryListByParentId.action?id=0';
+                  var url2 = 'http://erp.yihaodian.com/groupon/intelligence/getCategoryListByParentId.action?id=';
+                  FormUtil.initThreeCombobox('category_1', 'category_2', 'category_3', url1, url2, url2);
+              });
+
+              $('#id3').bind('click', function () {
+                  var times = ['2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06'];
+                  var muns = [-100,0.01,300,150,333,400]
+                  var obj = {
+                                'id' : 'fomrUtil_price_div',
+                                'title' : '一号店自营',   //标题
+                                'times' : times,
+                                'muns' : muns};
+                  FormUtil.createLineChart(obj);     //弹出框并绘图
+              });
+
+              $('#id4').bind('click', function () {
+                  var brandsData  =[
+                                          {'name': "上海",y: 5456.96},
+                                          {'name': "北京",y: 2783.14},
+                                          {'name': "广东",y: 2528.76},
+                                          {'name': "江苏",y: 684.22},
+                                          {'name': "浙江",y: 672.04},
+                                          {'name': "天津",y: 306.34},
+                                          {'name': "河北",y: 217.8},
+                                          {'name': "湖北",y: 195.78},
+                                          {'name': "福建",y: 137.9},
+                                          {'name': "重庆",y: 118.2}
+                                        ] ;
+                  var data = {'id': 'hotSele_div','title':'热销省份','subtitle':'团购智能化运营','yAxis_title': '元','brandsData':brandsData,'headerFormat': '销售额'};
+                  FormUtil.createBarChart(data);
+              });
+
+              $('#id5').bind('click', function () {
+                  FormUtil.toast('<br/><br/><br/><br/>内容..1111111111111111111111111111111111111111.<br/><br/><br/><br/>',2000);
+              });
+
+              $('#id6').bind('click', function () {
+                  FormUtil.alert('内容！');
+              });
+              $('#id7').bind('click', function () {
+                  FormUtil.progressStart();
+                  setTimeout(FormUtil.progressClose, 4000);
+              });
+
+              $('#id8').bind('click', function () {
+                  var url = 'http://erp.yihaodian.com/groupon/intelligence/ajaxGetPriceTrendList.action';
+                  var param = {'grouponInitChooseProductsDto.prod_id': 8503, 'grouponInitChooseProductsDto.startTime' : "2014-09-09 00:00:00", 'grouponInitChooseProductsDto.endTime' : "2014-10-09 00:00:00"};
+
+                  DataUtil.getAjaxDatas(url,param,function(resp){
+                      if(resp == "timeout" || resp.data == 'undefined'){
+                          FormUtil.toast('加载失败⊙﹏⊙!!!');
+                          return;
+                      }
+                      FormUtil.toast(resp);
+                  });
+              });
+              $('#id9').bind('click', function () {
+                    $('#window_div').window('open');
+              });
+
+              $('#id10').bind('click', function () {
+                  var map = new DataUtil.Map();
+                  map.put(1,'北京');
+                  map.put(2,'上海');
+                  map.put(3,'广州');
+                  var s = '';
+                  s +=   '\r\n map.get(2) : ' + map.get(2);
+                  s +=   '\r\n map.containsKey(3) : ' + map.containsKey(3);
+                  s +=   '\r\n map.isEmpty() : ' + map.isEmpty();
+
+                  FormUtil.alert(s);;
+              });
+
+              $('#id11').bind('click', function () {
+                  var json = {
+                      'guest_price_1': 1,
+                      'guest_price_2': 2,
+                      'pice_price_1': 3,
+                      'pice_price_2': 4
+                  };
+                  FormUtil.vals(json);
+              });
+
+              $('#id12').bind('click', function () {
+                  var ids = 'price_1,guest_1';
+                  FormUtil.setAbles(ids,'disabled');
+
+                  //$('#guest_1').textbox('disable');
+                  //$('#price_1').numberbox('disable');
+
+              });
+
+              $('#id13').bind('click', function () {
+                  var ids = 'price_1,guest_1';
+                  FormUtil.setAbles(ids,'able');
+              });
+
+          });
+
+      </script>
+  </head>
+  <body>
+
+      <h1>
+        组件1.4
+      </h1>
+
+        <div class="easyui-tabs" style="width:100%;height:auto">
+            <div title="select" style="padding:5px">
+                <div class="play-ground">
+                    <h3>初始化select控件</h3>
+                    <div class="spacer">
+                        <div id="id1" class="btn">Click me</div>
+                        <input id="select_top"/>
+                    </div>
+                    <pre>
+                            var data = [
+                              {"id": "50", "name": "50"},
+                              {"id": "100", "name": "100"}
+                            ];
+                            var obj = {
+                                        'id': 'select_top', //input元素的 id
+                                        'width': 100,
+                                        'height': 50,
+                                        'editable': true,   //是否可编辑
+                                        'data': data,
+                                        'value': 50 };     //默认显示
+                            FormUtil.initSelect(obj);
+                    </pre>
+                </div>
+            </div>
+            <div title="三级联动" style="padding:5px">
+                <div class="play-ground">
+                    <h3>三级联动select通用方法</h3>
+                    <div class="spacer">
+                        <div id="id2" class="btn">Click me</div>
+                        <input id="category_1"/>
+                        <input id="category_2"/>
+                        <input id="category_3"/>
+                    </div>
+                    <pre>
+                            //后台类目三级联动组件
+                            var url1 = 'http://erp.yihaodian.com/groupon/intelligence/getCategoryListByParentId.action?id=0';
+                            var url2 = 'http://erp.yihaodian.com/groupon/intelligence/getCategoryListByParentId.action?id=';
+                            FormUtil.initThreeCombobox('category_1', 'category_2', 'category_3', url1, url2, url2);
+                    </pre>
+                </div>
+            </div>
+
+            <div title="toast" style="padding:5px">
+                <div class="play-ground">
+                    <h3>toast</h3>
+                    <div class="spacer">
+                        <div id="id5" class="btn">Click me</div>
+                    </div>
+                    <pre>
+                             FormUtil.toast('内容...',2000); //显示2秒,如果不输入默认显示1秒
+                    </pre>
+                </div>
+            </div>
+            <div title="alert" style="padding:5px">
+                <div class="play-ground">
+                    <h3>alert</h3>
+                    <div class="spacer">
+                        <div id="id6" class="btn">Click me</div>
+                    </div>
+                    <pre>
+                             FormUtil.alert('内容！');
+                    </pre>
+                </div>
+            </div>
+            <div title="progress" style="padding:5px">
+                <div class="play-ground">
+                    <h3>progress</h3>
+                    <div class="spacer">
+                        <div id="id7" class="btn">Click me</div>
+                    </div>
+                    <pre>
+                             FormUtil.progressStart();
+                             setTimeout(FormUtil.progressClose, 4000);
+                    </pre>
+                </div>
+            </div>
+            <div title="getAjaxDatas" style="padding:5px">
+                <div class="play-ground">
+                    <h3>getAjaxDatas</h3>
+                    <div class="spacer">
+                        <div id="id8" class="btn">Click me</div>
+                    </div>
+                    <pre>
+                            var url = 'http://erp.yihaodian.com/groupon/intelligence/ajaxGetPriceTrendList.action';
+                            var param = {'grouponInitChooseProductsDto.prod_id': 8503, 'grouponInitChooseProductsDto.startTime' : "2014-09-09 00:00:00", 'grouponInitChooseProductsDto.endTime' : "2014-10-09 00:00:00"};
+
+                            DataUtil.getAjaxDatas(url,param,function(resp){
+                              if(resp == "timeout" || resp.data == 'undefined'){
+                                  FormUtil.toast('加载失败⊙﹏⊙!!!');
+                                  return;
+                              }
+                              FormUtil.toast(resp);
+                            });
+
+
+                            /**
+                             * aja 依赖jquery 根据url发送ajax请求
+                             * @param url
+                             * @param data : 参数
+                             * @param callBack ：回调函数
+                             */
+                            DataUtil.getAjaxDatas = function (url,data,callBack){
+                                $.ajax(
+                                    {
+                                        type : "post",
+                                        url:url,
+                                        data:data,
+                                        dataType : "json",
+                                        timeout: 15000,
+                                        beforeSend : FormUtil.progressStart(),
+                                        error : function() {
+                                            FormUtil.progressClose();
+                                            FormUtil.toast('加载异常，网络服务不给力⊙﹏⊙!!!',1500);
+                                        },
+                                        success:function(result){
+                                            try{
+                                                FormUtil.progressClose();
+                                                callBack(result);
+                                            }catch(e){
+                                                FormUtil.toast('加载数据异常 ⊙﹏⊙!!',1500);
+                                            }
+                                        },
+                                        complete:function(e,t){
+                                            FormUtil.progressClose();
+                                            if(t && t == "timeout"){
+                                                FormUtil.toast('加载异常，网络服务不给力⊙﹏⊙!!',1500);
+                                                callBack(t);
+                                            }
+                                        }
+                                    }
+                                )
+                            }
+                    </pre>
+                </div>
+            </div>
+            <div title="折线图" style="padding:5px">
+                <div class="play-ground">
+                    <h3>折线图</h3>
+                    <div class="spacer">
+                        <div id="id3" class="btn">Click me</div>
+                        <div id="fomrUtil_price_div" class="easyui-window" closed="true" modal="true" title="价格趋势" style="width:700px;height:300px;dispaly:no"></div>
+                    </div>
+                    <pre>
+                              var times = ['2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06'];
+                              var muns = [100,200,300,150,333,400]
+                              var obj = {
+                                            'id' : 'fomrUtil_price_div',
+                                            'title' : '一号店自营',   //标题
+                                            'times' : times,
+                                            'muns' : muns};
+                              FormUtil.createLineChart(obj);     //弹出框并绘图
+                    </pre>
+                </div>
+            </div>
+            <div title="柱状图" style="padding:5px">
+                <div class="play-ground">
+                    <h3>柱状图</h3>
+                    <div class="spacer">
+                        <div id="id4" class="btn">Click me</div>
+                        <div id="hotSele_div" class="easyui-window" closed="true" modal="true" title="热销省份" style="width:700px;height:300px;dispaly:no"></div>
+
+                    </div>
+                    <pre>
+                            var brandsData  =[
+                                                  {'name': "上海",y: 5456.96},
+                                                  {'name': "北京",y: 2783.14},
+                                                  {'name': "广东",y: 2528.76},
+                                                  {'name': "江苏",y: 684.22},
+                                                  {'name': "浙江",y: 672.04},
+                                                  {'name': "天津",y: 306.34},
+                                                  {'name': "河北",y: 217.8},
+                                                  {'name': "湖北",y: 195.78},
+                                                  {'name': "福建",y: 137.9},
+                                                  {'name': "重庆",y: 118.2}
+                                                ] ;
+                            var data = {
+                                        'id': 'hotSele_div',
+                                        'title':'热销省份',
+                                        'subtitle':'团购智能化运营',
+                                        'subtitle':'www.yhd.com',
+                                        'yAxis_title': '元',
+                                        'brandsData':brandsData,
+                                        'headerFormat': '销售额'};
+                            FormUtil.createBarChart(data);
+                    </pre>
+                </div>
+            </div>
+            <div title="Basic Window" style="padding:5px">
+                <div class="play-ground">
+                    <h3>Basic Window</h3>
+                    <div class="spacer">
+                        <div id="id9" class="btn">Click me</div>
+
+                        <div id="window_div" class="easyui-window" closed="true" modal="true" data-options="iconCls:'icon-save'" title="窗口" style="width:700px;height:300px;">
+                            内容。。。
+                        </div>
+
+                    </div>
+                    <pre>
+                        $('#window_div').window('open');
+                    </pre>
+                </div>
+            </div>
+            <div title="Map" style="padding:5px">
+                <div class="play-ground">
+                    <h3>Map</h3>
+                    <div class="spacer">
+                        <div id="id10" class="btn">Click me</div>
+                    </div>
+                    <pre>
+                            /**
+                             *  Js 实现类似Java中的Map对象
+                             *  put(key , value) : 存
+                             *  get(key) ：取
+                             *  remove(key) : 删除
+                             *  containsKey(key) ：是否包含 Key
+                             *  containsValue(obj) : 是否包含 value
+                             *  values() : 获取所有Value return Array
+                             *  keys() : 获取所有key  return Array
+                             *  size()
+                             *  clear() : 清空 Map
+                             *  isEmpty() :判断是否为空
+                             */
+                            var map = new DataUtil.Map();
+                            map.put(1,'北京');
+                            map.put(2,'上海');
+                            map.put(3,'广州');
+                            console.log('map.get(2) : ' + map.get(2) );
+                            console.log('map.containsKey(3) : ' + map.containsKey(3) );
+                            console.log('map.isEmpty() : ' + map.isEmpty() );
+                    </pre>
+                </div>
+            </div>
+            <div title="批量赋值" style="padding:5px">
+                <div class="play-ground">
+                    <h3>批量赋值</h3>
+                    <div class="spacer">
+                        <div id="id11" class="btn">Click me</div>
+                        <input type="text" id="guest_price_1" precision="2" class="easyui-textbox" style="width:50px" >
+                        -
+                        <input type="text" id="guest_price_2" precision="2" class="easyui-datebox" style="width:50px" />
+                        -
+                        <input type="text" id="pice_price_1" precision="2" class="easyui-numberbox" style="width:50px" />
+                        -
+                        <input type="text" id="pice_price_2" precision="2" class="easyui-combobox" style="width:50px" />
+                    </div>
+                    <pre>
+                              var json = {
+                                              'guest_price_1': 1,
+                                              'guest_price_2': 2,
+                                              'pice_price_1': 3,
+                                              'pice_price_2': 4
+                                          };
+
+                              FormUtil.vals(json);
+                    </pre>
+                </div>
+            </div>
+            <div title="批量设置属性" style="padding:5px">
+                <div class="play-ground">
+                    <h3>批量设置属性</h3>
+                    <div class="spacer">
+                        <div id="id12" class="btn">disabled</div>
+                        <div id="id13" class="btn">able</div>
+
+                        <input type="text" id="guest_1" precision="2" class="easyui-textbox" style="width:50px" >
+                        -
+                        <input type="text" id="price_1" precision="2" class="easyui-numberbox" style="width:50px" />
+
+                    </div>
+                    <pre>
+                        var ids = 'price_1,guest_1';
+                        FormUtil.setAbles(ids, 'disabled');
+
+                        FormUtil.setAbles(ids, 'able');
+                    </pre>
+                </div>
+            </div>
+        </div>
+  </body>
+</html>

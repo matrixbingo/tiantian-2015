@@ -1,0 +1,823 @@
+<div class="hidden" id="task1"></div>
+
+<div id="task2">
+    <div class="span9">
+        <div class="row">
+            <h3>商品信息</h3>
+            <div class="form-horizontal small-labels bs-docs-example">
+                <div class="row ">
+                    <div class="span4">
+                        <div class="control-group">
+                            <label class="control-label">商品名称</label>
+
+                            <div class="controls">
+                                <input class="tt-task-input" id="commodityName" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="control-group">
+                            <label class="control-label">商品链接</label>
+
+                            <div class="controls">
+                                <input class="tt-task-input" id="commodityHref" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tt-padding-bottom">
+                    <div class="span4">
+                        <div class="control-group">
+                            <label class="control-label">商品主图</label>
+
+                            <div class="controls">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;">
+                                        <img src="../lib/img/default_upic.png"/>
+                                    </div>
+
+                                     <span class="msg-box n-top hidden" id="commodityPhotoDiv">
+                                        <span role="alert" class="msg-wrap n-error">
+                                            <span class="n-arrow"><b>◆</b><i>◆</i></span>
+                                            <span class="n-icon"></span>
+                                            <span class="n-msg">请选择商品主图</span>
+                                        </span>
+                                    </span>
+
+                                    <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
+                                    <span class="btn btn-file"><span class="fileupload-new">选择图片</span><span class="fileupload-exists">更换</span><input type="file" id="commodityPhoto"/></span>
+                                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="control-group">
+                            <label class="control-label">商品所在地</label>
+
+                            <div class="controls">
+                                <select id="commodityAddress">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tt-padding-bottom">
+                    <div class="span4">
+                        <div class="control-group">
+                            <label class="control-label">价格区间</label>
+
+                            <div class="controls">
+                                <input class="tt-task-input-70" id="minPrice" type="text">
+                                ~
+                                <input class="tt-task-input-70" id="maxPrice" type="text">元
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="control-group">
+                            <label class="control-label">是否包邮</label>
+
+                            <div class="row">
+                                <div class="span2">
+                                    <label class="radio inline">
+                                        <input type="radio" name="freeShipping" value="1">
+                                        是
+                                    </label>
+                                    <label class="radio inline">
+                                        <input type="radio" name="freeShipping" value="0" checked>
+                                        否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row tt-padding-bottom">
+                    <div class="span4">
+                        <div class="control-group">
+                            <label class="control-label">商品单价</label>
+
+                            <div class="controls">
+                                <input class="tt-task-input" id="commodityPrice" type="text">元/件
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="control-group">
+                            <label class="control-label">每个订单含该商品数量</label>
+
+                            <div class="controls">
+                                <input class="tt-task-input" id="orderHaveCommodityNum" type="text" value="1">件
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h3>任务信息</h3>
+
+            <div class="form-horizontal small-labels bs-docs-example">
+                <div class="row tt-padding-bottom">
+                    <div class="span2">
+                        <label class="control-label">是否直通车任务:</label>
+                    </div>
+                    <div class="span5">
+                        <label class="radio inline">
+                            <input type="radio" name="isStraightTrainTask" value="1">
+                            是
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="isStraightTrainTask" value="0" checked>
+                            否
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row tt-padding-bottom">
+                    <div class="span2">
+                        <label class="control-label">放单总数:</label>
+                    </div>
+                    <div class="span5">
+                        <input class="tt-task-input" id="orderNum" type="text">单
+                    </div>
+                </div>
+
+                <div class="row tt-padding-bottom">
+                    <div class="span2">
+                        <label class="control-label">搜索关键词1:</label>
+                    </div>
+                    <div class="tt-span6 form-inline">
+                        <input class="tt-task-input" data-group="g1" data-id="keyWord" id="keyWord1" type="text">
+                        <label>放单数：</label>
+                        <input class="tt-task-input-50" data-group="g1" data-id="orderNum" id="orderNum0" type="text">件
+                        <button class="btn btn-link" id="addKeyWord" type="button">+ 增加关键词（最多可增加2个关键词)</button>
+                    </div>
+                </div>
+
+                <div class="row tt-padding-bottom" id="addKeyWordDiv">
+                </div>
+
+                <div class="row">
+                    <div class="span2">
+                        <label class="control-label">订单留言:</label>
+                    </div>
+                    <div class="span6 form-inline">
+                        <textarea rows="2" class="tt-task-textarea-200" id="message"></textarea>
+                    </div>
+                </div>
+
+                <div class="row tt-padding-bottom">
+                    <div class="span2">
+
+                    </div>
+                    <div class="span6 form-inline">
+                        <span>(出于安全考虑，统一留言不建议大批量使用，建议可选用特色留言的增值服务)</span>
+                    </div>
+                </div>
+
+                <div class="row tt-padding-bottom">
+                    <div class="span8">
+                        <span>（选填）放单时间设置（不填写，就默认发布任务时放出全部订单哦）：</span>
+                    </div>
+                </div>
+
+                <div class="row tt-padding-bottom">
+                    <div class="form-inline">
+                        <label style="padding: 5px 10px 0px 50px;">放单开始时间</label>
+                        <input id="startTime" data-group="g2" data-id="startTime" class="Wdate tt-task-input-160" type="text" onFocus="var endDate=$dp.$('endTime');WdatePicker({onpicked:function(){endDate.focus();},maxDate:'#F{$dp.$D(\'endTime\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly/>
+                        —放单停止时间
+                        <input id="endTime" data-group="g2" data-id="endTime" class="Wdate tt-task-input-160" type="text" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'startTime\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly/>
+                        <label>放单数量</label>
+                        <input class="tt-task-input-50" id="showorderNum0" data-group="g2" data-id="orderNum" type="text">
+                        <button class="btn btn-link" id="addputTimesbtn" type="button">+ 增加放单时间段(最多3个)</button>
+                    </div>
+
+                </div>
+
+                <div id="addTimeDiv"></div>
+
+                <div class="row tt-padding-bottom">
+                    <div class="span8">
+                        <button class="btn btn-link" id="addMerchantbtn" type="button">+ 增加附加商品（最多可增加2个附加商品）</button>
+                        <span class="tt-color-red"> +2金/商品/单 </span>
+                    </div>
+                </div>
+                <div id="addMerchantsdiv"></div>
+                <div class="row" id="announcementsDiv">
+                    <div class="span8 tt-padding-right-20">
+                        <label class="checkbox">
+                            <input type="checkbox" id="announcements">
+                            提示买手注意事项：
+                        </label>
+                    </div>
+                </div>
+                <div class="row hidden" id="announcementsTextarea">
+                    <div class="span8 tt-padding-right-20">
+                        <textarea rows="2" class="tt-task-textarea-200" id="note"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <p>
+                <button class="btn btn-warning" type="button" onclick="TT_Task.prep(1)">上一步</button>
+                <button class="btn btn-warning" type="button" onclick="TT_Task.next(3)">下一步</button>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="hidden" id="task3">
+    <div class="span9">
+        <div class="form-inline">
+            <label class="control-label">（可选增值服务）</label>
+            <button class="btn" type="button">我不感兴趣，下一步</button>
+        </div>
+        <div class="span9 tt-padding-top">
+            <div class="form-inline">
+                <label class="tt-title">安全服务</label>
+                <label>这些服务可帮您大大提高任务安全性哦</label>
+            </div>
+            <div class="row">
+                <div class="span8 ">
+                    <label class="checkbox">
+                        <input type="checkbox" id="">
+                        空包服务 <span class="tt-color-red">+3.5金/单</span>
+                        （市面上最安全的快递服务，可自定义重量，包裹流转可全程跟踪，无需签收，单号唯一，匹配商家实际收发货地址，可提供物流底单照片及内网截图）
+                    </label>
+                </div>
+            </div>
+            <div class="tt-well-dashed">
+                <div class="form-inline">
+                    <div class="form-inline">
+                        <label class="control-label">包裹重量:</label>
+                        <input class="tt-task-input-100" id="packageWeight" type="text">
+                        <label class="tt-task-input-100">公斤/包裹</label>
+                        <label class="tt-task-input-100">快递公司：韵达</label>
+                        <label>发货网点编号:</label>
+                        <input class="tt-task-input-150" id="dotNumber" type="text">
+                        <button class="btn btn-link" id="addputTimesbtn" type="button"><< 点击查询快递发货网点</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span8 ">
+                    <label class="checkbox">
+                        <input type="checkbox" id="">
+                        配流量 <span class="tt-color-red">+0.5金/单 </span>（用来稀释转化率，增加商品关键词点击率）
+                    </label>
+                </div>
+            </div>
+            <div class="tt-well-dashed">
+                <div class="form-inline">
+                    <label class="control-label">搜索关键词1：</label>
+                    <input class="tt-task-input-100" type="text">
+                    <label class="tt-padding-left-70">放单数：</label>
+                    <input class="tt-task-input-100" type="text">
+                    <label class="tt-padding-left-70">匹配流量：</label>
+                    <input class="tt-task-input-50" type="text">
+                </div>
+                <div class="form-inline tt-padding-top-10">
+                    <div class="form-inline">
+                        <label class="control-label">搜索关键词2：</label>
+                        <input class="tt-task-input-100" type="text">
+                        <label class="tt-padding-left-70">放单数：</label>
+                        <input class="tt-task-input-100" type="text">
+                        <label class="tt-padding-left-70">匹配流量：</label>
+                        <input class="tt-task-input-50" type="text">
+                    </div>
+                </div>
+                <div class="form-inline tt-padding-top-10">
+                    <label class="control-label">搜索关键词3：</label>
+                    <input class="tt-task-input-100" type="text">
+                    <label class="tt-padding-left-70">放单数：</label>
+                    <input class="tt-task-input-100" type="text">
+                    <label class="tt-padding-left-70">匹配流量：</label>
+                    <input class="tt-task-input-50" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="span8 ">
+                    <label class="checkbox">
+                        <input type="checkbox" id="">
+                        特色留言 <span class="tt-color-red">+0.2金/单 </span> （在您填写的留言后加上四位随机数字或字母，既能快速识别，又保证安全哦）
+                    </label>
+                </div>
+            </div>
+            <div class="tt-well-dashed">
+                <div class="form-inline">
+                    <div class="form-inline">
+                        <label class="control-label">留言文字：</label>
+                        <input class="tt-task-input-200" type="text">
+                        <label>(买手在做任务时，看到的留言是您给的文字+四位随机数字或字母：如“加急36GH”/“加急4C8K")</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span8 ">
+                    <label class="checkbox">
+                        <input type="checkbox" id="">
+                        延长买家购买周期 <span class="tt-color-red">+1金/单 </span>（有些特殊类目标的商家，如家装，并不想要超过行业平均水平的复购率，刚可使用此服务）
+                    </label>
+                </div>
+            </div>
+            <div class="tt-well-dashed">
+                <div class="form-inline">
+                    <label class="radio inline tt-padding-left-100">
+                        <input type="radio" name="" value="1" checked>
+                        延长2个月
+                    </label>
+                    <label class="radio inline tt-padding-left-70">
+                        <input type="radio" name="" value="0">
+                        延长3个月
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span8">
+                    <label class="checkbox">
+                        <input type="checkbox" id="">
+                        隔天任务（买家提前几天浏览、收藏、加购，再购买，充分模拟真实买家行为轨迹）
+                    </label>
+                </div>
+            </div>
+
+            <div class="tt-well-container">
+                <div class="row">：
+                    <div class="span4">
+                        <label> 您已设置的任务数为：</label>
+                    </div>
+                    <div class="span4">
+                        <label class="checkbox">
+                            隔天任务数为：
+                        </label>
+                    </div>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" id=""/>2天任务 <span class="tt-color-red">+2金/单</span>（买家第一天浏览、收藏、加购，第二天从购物车进来付款）
+                </label>
+
+                <div class="form-inline">
+                    <div class="tt-well-dashed">
+                        <div class="form-inline">
+                            <div class="form-inline">
+                                <label class="control-label">设置2天任务单数：</label>
+                                <input class="tt-task-input-100" type="text">单
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="checkbox">
+                    <input type="checkbox" id=""/>5天任务 <span class="tt-color-red">+4金/单</span>（买家第一天浏览、收藏，第三天从收藏进来加购，每五天从购物车进来付款）
+                </label>
+
+                <div class="form-inline">
+                    <div class="tt-well-dashed">
+                        <div class="form-inline">
+                            <div class="form-inline">
+                                <label class="control-label">设置5天任务单数：</label>
+                                <input class="tt-task-input-100" type="text">单
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-inline">
+                <label class="tt-title">权重优化服务</label>
+                <label>这些服务可帮您有针对性地提高商品权重哦</label>
+            </div>
+            <div class="row">
+                <div class="span8 ">
+                    <label class="checkbox">
+                        <input type="checkbox" id="">
+                        钻号配比 <span class="tt-color-red">+2金/单</span>（您可指定买号的最低钻号比率，最高可达100%全钻号哦）
+                    </label>
+                </div>
+            </div>
+            <div class="tt-well-dashed">
+                <div class="form-inline">
+                    <div class="row">：
+                        <div class="span4">
+                            <label>您已设置的任务总订单数为：</label>
+                        </div>
+                        <div class="span4">
+                            <label class="checkbox">
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <label class="control-label">设置此任务的钻号配比率为:</label>
+                    <input class="tt-task-input-100" type="text">%
+                    <label class="tt-padding-left-70">保证至少有</label>
+                    <input type="text">单钻号接单
+                </div>
+            </div>
+            <div class="row">
+                <div class="span8 ">
+                    <label class="checkbox">
+                        <input type="checkbox" id="">
+                        浏览+收藏+加购<span class="tt-color-red">+1金/单 </span>（适量的收藏加购，可有效增加您的宝贝搜索权重哦）
+                    </label>
+                </div>
+            </div>
+
+            <div class="tt-well-dashed">
+                <div class="row">：
+                    <div class="span4">
+                        <label> 您已设置的任务总订单数为：</label>
+                    </div>
+                    <div class="span4">
+                        <label class="checkbox">
+                            总浏览收藏加购数：
+                        </label>
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <label class="control-label">搜索关键词1：</label>
+                    <input class="tt-task-input-100" type="text">
+                    <label class="tt-padding-left-70">放单数：</label>
+                    <input class="tt-task-input-100" type="text">
+                    <label class="tt-padding-left-70">浏览收藏加购数：</label>
+                    <input class="tt-task-input-50" type="text">
+                </div>
+                <div class="form-inline tt-padding-top-10">
+                    <div class="form-inline">
+                        <label class="control-label">搜索关键词2：</label>
+                        <input class="tt-task-input-100" type="text">
+                        <label class="tt-padding-left-70">放单数：</label>
+                        <input class="tt-task-input-100" type="text">
+                        <label class="tt-padding-left-70">浏览收藏加购数：</label>
+                        <input class="tt-task-input-50" type="text">
+                    </div>
+                </div>
+                <div class="form-inline tt-padding-top-10">
+                    <label class="control-label">搜索关键词3：</label>
+                    <input class="tt-task-input-100" type="text">
+                    <label class="tt-padding-left-70">放单数：</label>
+                    <input class="tt-task-input-100" type="text">
+                    <label class="tt-padding-left-70">浏览收藏加购数：</label>
+                    <input class="tt-task-input-50" type="text">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span8 ">
+                    <label class="checkbox">
+                        <input type="checkbox" id="">
+                        定制回头客 <span class="tt-color-red">+2金/单</span>（您可指定曾经购买过您家产品的买号来购买您的商品，此买号上次购买时间为15天+）
+                    </label>
+                </div>
+            </div>
+            <div class="tt-well-container">
+                <label class="checkbox">
+                    <input type="checkbox" id=""/>性别<span class="tt-color-red">+0.5金/单</span>
+                </label>
+
+                <div class="form-inline">
+                    <div class="tt-well-dashed">
+                        <div class="form-inline">
+                            <label class="radio inline tt-padding-left-100">
+                                <input type="radio" name="" value="1">
+                                男
+                            </label>
+                            <label class="radio inline tt-padding-left-70">
+                                <input type="radio" name="" value="0">
+                                女
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="checkbox">
+                    <input type="checkbox" id=""/>年龄<span class="tt-color-red">+0.5金/单</span>
+                </label>
+
+                <div class="form-inline">
+                    <div class="tt-well-dashed">
+                        <label class="radio inline tt-padding-left-100">
+                            <input type="radio" name="" value="1">18岁以下
+                        </label>
+                        <label class="radio inline tt-padding-left-70">
+                            <input type="radio" name="" value="0">18-25岁
+                        </label>
+                        <label class="radio inline tt-padding-left-100">
+                            <input type="radio" name="" value="1">26-35岁
+                        </label>
+                        <label class="radio inline tt-padding-left-70">
+                            <input type="radio" name="" value="0">26-35岁
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span8 ">
+                        <label class="checkbox">
+                            <input type="checkbox" id="">
+                            仅限开通花呗的买号来接任务 <span class="tt-color-red">+2金/单</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span8">
+                        <label class="checkbox">
+                            <input type="checkbox" id="">
+                            地域<span class="tt-color-red">+0.5金/单</span>（选择哪些地域的买号不能接任务)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-inline">
+                    <div class="tt-well-dashed">
+                        <div class="form-inline">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th colspan="4">编辑区域</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="">华东
+                                        </label>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span8">
+                    <label class="checkbox">
+                        <input type="checkbox" id="">
+                        指定好评（可定制商品的图文超级好评哦）
+                    </label>
+                </div>
+            </div>
+
+            <div class="tt-well-container">
+                <div class="row">：
+                    <div class="span4">
+                        <label> 任务总单数为：：</label>
+                    </div>
+                    <div class="span4">
+                        <label class="checkbox">
+                            指定评语单数为：
+                        </label>
+                    </div>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" id=""/>指定关键词好评<span class="tt-color-red">+1金/单</span>（买手按照您给的关键词自由组句，一组关键词只会给到一个买号哦）
+                </label>
+
+                <div class="form-inline">
+                    <div class="tt-well-dashed">
+                        <div class="form-inline">
+                            <div class="form-inline">
+                                <label class="control-label">指定关键词任务单数为：</label>
+                                <input class="tt-task-input-100" type="text">单
+                            </div>
+                        </div>
+                        <div class="row tt-padding-bottom">
+                            <div class="span8">
+                                <label class="control-label">指定关键词（最多可指定三个关键词:</label>
+                                <input class="tt-task-input-100" type="text">
+                                <input class="tt-task-input-100" type="text">
+                                <input class="tt-task-input-100" type="text">
+                                <button class="btn btn-link" id="addKeyWord" type="button">+ 增加一组关键词</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="checkbox">
+                    <input type="checkbox" id=""/>指定评语<span class="tt-color-red">+1金/单</span>（买手按照您给的评语给出好评，一组评语只会给到一个买号哦）
+                </label>
+
+                <div class="form-inline">
+                    <div class="tt-well-dashed">
+                        <div class="form-inline">
+                            <div class="form-inline">
+                                <label class="control-label">指定评语任务单数为：</label>
+                                <input class="tt-task-input-100" type="text">单
+                            </div>
+                        </div>
+                        <div class="row tt-padding-bottom">
+                            <div class="span8">
+                                <label class="control-label">指定评语：</label>
+                                <input class="tt-task-input-200" type="text">
+                                <button class="btn btn-link" id="addKeyWord" type="button">+ 增加一组评语</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="checkbox">
+                    <input type="checkbox" id=""/>指定图文好评<span class="tt-color-red">+2金/单</span>买手按照您给的l图片和评语给出好评，一组图片和评语只会给到一个买号哦）
+                </label>
+
+                <div class="form-inline">
+                    <div class="tt-well-dashed">
+                        <div class="form-inline">
+                            <div class="form-inline">
+                                <label class="control-label">指定图文好评任务单数为：</label>
+                                <input class="tt-task-input-100" type="text">单
+                            </div>
+                        </div>
+                        <div class="row tt-padding-bottom">
+                            <div class="span8">
+                                <label class="control-label">指定评语：</label>
+                                <input class="tt-task-input-200" type="text">
+                                <button class="btn btn-link" id="addKeyWord" type="button">+ 增加一组评语</button>
+                            </div>
+                            <div class="span8">
+
+                                <div class="form-inline">
+                                    <div class="fileupload fileupload-new tt-float-left tt-padding-11"
+                                         data-provides="fileupload">
+                                        <div class="fileupload-preview thumbnail"
+                                             style="width: 100px; height: 100px;"></div>
+                                        <div>
+                                            <span class="btn btn-file"><span class="fileupload-new">选择</span><span
+                                                    class="fileupload-exists">修改</span><input type="file"/></span>
+                                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="fileupload fileupload-new tt-float-left tt-padding-11"
+                                         data-provides="fileupload">
+                                        <div class="fileupload-preview thumbnail"
+                                             style="width: 100px; height: 100px;"></div>
+                                        <div>
+                                            <span class="btn btn-file"><span class="fileupload-new">选择</span><span
+                                                    class="fileupload-exists">修改</span><input type="file"/></span>
+                                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="fileupload fileupload-new tt-float-left tt-padding-11"
+                                         data-provides="fileupload">
+                                        <div class="fileupload-preview thumbnail"
+                                             style="width: 100px; height: 100px;"></div>
+                                        <div>
+                                            <span class="btn btn-file"><span class="fileupload-new">选择</span><span
+                                                    class="fileupload-exists">修改</span><input type="file"/></span>
+                                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="fileupload fileupload-new tt-float-left tt-padding-11"
+                                         data-provides="fileupload">
+                                        <div class="fileupload-preview thumbnail"
+                                             style="width: 100px; height: 100px;"></div>
+                                        <div>
+                                            <span class="btn btn-file"><span class="fileupload-new">选择</span><span
+                                                    class="fileupload-exists">修改</span><input type="file"/></span>
+                                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-inline">
+                <label class="tt-title">效率服务</label>
+                <label>这些服务可帮您提升完成任务的速度哦</label>
+            </div>
+            <div class="row">
+                <div class="span8 ">
+                    <label class="checkbox">
+                        <input type="checkbox" id="">
+                        任务插队 <span class="tt-color-red">+5金/单 </span>（把您发布的任务置顶，买手第一眼就能看到哦）
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span8">
+                    <label class="checkbox">
+                        <input type="checkbox" id="">
+                        买手抢单小费（给买手一点小费，他们会抢单更积级哦）
+                    </label>
+                </div>
+            </div>
+            <div class="tt-well-dashed">
+                <div class="form-inline">
+                    <label class="radio inline tt-padding-left-100">
+                        <input type="radio" name="" value="1" checked>
+                        加0.5金/单
+                    </label>
+                    <label class="radio inline tt-padding-left-70">
+                        <input type="radio" name="" value="0">
+                        加1金/单
+                    </label>
+                    <label class="radio inline tt-padding-left-70">
+                        <input type="radio" name="" value="0">
+                        加1.5金/单
+                    </label>
+                </div>
+            </div>
+
+            <p>
+                <button class="btn btn-warning" type="button" onclick="TT_Task.prep(2)">上一步</button>
+                <button class="btn btn-warning" type="button" onclick="TT_Task.next(4)">下一步</button>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="task4" class="hidden">
+    <div class="span9">
+        <h3>计算任务基础金额</h3>
+        <div class="form-horizontal small-labels bs-docs-example" id="taskAmount"></div>
+        <p>
+            <button class="btn btn-warning" type="button" onclick="TT_Task.next(2)">上一步</button>
+            <button class="btn btn-warning" type="button" onclick="">保存</button>
+        </p>
+    </div>
+</div>
+
+<div id="taskTemplate"></div>
+
+<script language="JavaScript">
+    $('#task1').load(main.modules.tasks.taskStap1, function () {
+        loads(loaderHandler.loaders.taskContainer, function () {
+        });
+    });
+</script>

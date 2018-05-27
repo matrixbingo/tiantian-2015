@@ -1,0 +1,19 @@
+
+
+.address-wrap{position: absolute;top: -5px;left: 85px;z-index: 1003;}
+.address-wrap .goodsaddress{position: relative;width: 80px;padding: 4px;padding-right: 30px;font-size: 13px;color: inherit;border: 1px solid #bebfbf;background-color: #fff;text-align: center;cursor: pointer;overflow: hidden;}
+.address-wrap .goodsaddress .up-down-trian{position: absolute;right: 10px;top: 8px;width: 11px;height: 7px;background: url(../images/updowntriangle.png) 0 0 no-repeat;}
+.address-wrap .goodsaddress:hover{border-bottom: 1px solid #fff;}
+.address-wrap .goodsaddress:hover .up-down-trian{background: url(../images/updowntriangle.png) 0 -7px no-repeat;}
+.address-wrap .alladdress{position: absolute;left: 0px;top: 23px;width: 360px;height: 360px;border: 1px solid #bebfbf;background-color: #fff;}
+.address-wrap .alladdress .coverborder{position: absolute;top: -3px;left: 0;width: 114px;height: 5px;background-color: #fff;}
+.address-wrap .alladdress table{margin: 0;width: 100%;}
+.address-wrap .alladdress table td{text-align: left;padding: 5px 0px;}
+.address-wrap .alladdress table td a{color: #666;}
+.address-wrap .alladdress table td a:hover{color: #D84C31;text-decoration: underline;}
+.address-wrap .alladdress .hotcity{padding: 10px;border-bottom: 1px dashed #bebfbf;padding-top: 20px;}
+.address-wrap .alladdress .provincity{padding: 10px;border-bottom: 1px dashed #bebfbf;padding-top: 20px;}
+.address-wrap .alladdress .province{padding: 10px;border-bottom: 1px dashed #bebfbf;padding-top: 20px;}
+
+
+

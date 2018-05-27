@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style type="text/css">
+    .textarea{
+        width: 600px;
+        height: 200px;
+    }
+    button{
+        width: 100px;
+        height: 50px;
+    }
+    input{
+        width: 400px;
+        height: 20px;
+    }
+</style>
+
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script src="../../zeroclipboard/dist/ZeroClipboard.js"></script>
+<script language="JavaScript">
+
+    var client, content;
+    $(document).ready(function(){
+        client = new ZeroClipboard(document.getElementById("copy"));
+
+        $('#textarea').on('blur', function (e) {
+            var s = $.trim($('#textarea').val());
+            var leng = s.length;
+            if(s.indexOf('"') == 0){
+                s = s.substr(1,leng-2);
+                debugger;
+            }
+            $('#textarea').val(s);
+        })
+    });
+
+    function zhuan(){
+        var div = document.getElementById("container"),
+                textarea = document.getElementById("textarea"),
+                xmp = document.getElementById("xmp");
+        var s = $('#textarea').val();
+        var re = /(^|[^"'(=])((http|https|ftp)\:\/\/[\.\-\_\/a-zA-Z0-9\~\?\%\#\=\@\:\&\;\*\+]+\b[\?\#\/\*]*)/g;
+
+        content =s.replace(re,'$1<a style="cursor: pointer; color: #2c87bd" class="external-link" href="$2" target="_blank">$2</a>');
+        div.innerHTML = content;
+        xmp.innerHTML = content;
+
+        client.on("ready", function(readyEvent) {
+            client.on("copy", function(event) {
+                var clipboard = event.clipboardData;
+                //var copyText = $('#container').val();
+                debugger;
+                var id = $.trim($('#text').val());
+                var sql = "update FB_Type set LeadingAnswer = \n '" + $.trim(content) + "' \n where TypeI = '" + TypeName + "' and Level = 3;";
+                clipboard.setData("text/plain", sql); // 将内容添加到剪切板
+            });
+        });
+    }
+
+
+    function copy(){
+        client.on("ready", function(readyEvent) {
+            client.on("copy", function(event) {
+                var clipboard = event.clipboardData;
+               //var copyText = $('#container').val();
+                debugger;
+                var TypeName = $.trim($('#text').val());
+                var sql = "update FB_Type set LeadingAnswer = \n '" + $.trim(content) + "' \n where TypeName = '" + TypeName + "' and Level = 3;";
+                clipboard.setData("text/plain", sql); // 将内容添加到剪切板
+            });
+        });
+    }
+
+</script>
+<body>
+<input type="text" id="text"/>
+<br/>
+<br/>
+<textarea class="textarea" id="textarea">
+
+</textarea>
+<button onclick="zhuan()">ZZZZ</button>
+
+<button id="copy" >复制到剪贴板</button>
+
+<br/>
+<br/>
+
+<pre id="container">
+</pre>
+
+
+<pre>
+    <code>
+        <xmp id="xmp">
+        </xmp>
+    </code>
+</pre>
+
+
+</body>
+</html>

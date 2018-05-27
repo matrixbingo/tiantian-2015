@@ -1,0 +1,207 @@
+@{
+ViewBag.Title = "Register";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section RenderCSS{
+.list-widget{
+width:450px;
+border: 1px solid #DDD;
+border-radius: 3px;
+position: relative;
+border-top: 1px solid #EEE;
+background: white;
+padding: 10px;
+overflow: hidden;
+margin:0 auto 5px auto;
+}
+.control-group .control-label{
+width:100px;
+}
+.control-group .controls{
+margin-left:120px;
+}
+
+#showMoreInfo{
+width: 600px;
+padding: 30px;
+display:none;
+background: #FFF;
+border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+box-shadow: 0px 0px 4px rgba(0,0,0,0.7); -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7); -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+}
+#showMoreInfo p { color: #666; text-shadow: none; }
+
+#lean_overlay {
+position: fixed;
+z-index:100;
+top: 0px;
+left: 0px;
+height:100%;
+width:100%;
+background: #000;
+display: none;
+}
+
+
+.modal_close { position: absolute; top: 12px; right: 12px; display: block; width: 14px; height: 14px; background: url(http://leanmodal.finelysliced.com.au/img/modal_close.png); z-index: 2; }
+}
+@section RenderJSFile{
+<script type="text/javascript" src="http://leanmodal.finelysliced.com.au/js/jquery.leanModal.min.js"></script>
+
+
+<script charset="utf-8" src="http://www.kindsoft.net/ke4/kindeditor-all-min.js?t=20130421.js"></script>
+<script>
+    KindEditor.ready(function (K) {
+        window.editor = K.create('#editor_id');
+    });
+</script>
+
+
+}
+@section RenderJQReady{
+$('a[rel*=leanModal]').leanModal({ top : 200, closeButton: ".modal_close" });
+}
+
+
+
+<div class="list-widget">
+ 
+<textarea id="editor_id" name="content" style="width:700px;height:300px;">
+<strong>HTML内容</strong>
+</textarea>
+
+
+</div>
+
+
+
+<div class="list-widget">
+
+    <form class="form-horizontal">
+        <fieldset>
+            <div id="legend" class="">
+                <legend class=""><span style="margin-left:40px;">欢迎登陆</span></legend>
+            </div>
+            <div class="control-group">
+
+                <!-- Text input-->
+                <label class="control-label" for="input01">用户名称：</label>
+                <div class="controls">
+                    <input type="text" placeholder="请输入你的昵称" class="input-xlarge">
+                    <p class="help-block"></p>
+                </div>
+            </div>
+
+            <div class="control-group">
+
+                <!-- Text input-->
+                <label class="control-label" for="input01">登陆密码：</label>
+                <div class="controls">
+                    <input type="text" placeholder="请输入您的登陆密码" class="input-xlarge">
+                    <p class="help-block"></p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"></label>
+
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-success">欢迎登陆</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+<div class="list-widget">
+    <form class="form-horizontal" action="">
+        <fieldset>
+            <div id="legend" class="">
+                <legend class=""><span style="margin-left:40px;">欢迎注册</span></legend>
+            </div>
+            <div class="control-group">
+
+                <!-- Text input-->
+                <label class="control-label" for="input01">用户名称：</label>
+                <div class="controls">
+                    <input type="text" placeholder="请输入你的昵称" class="input-xlarge"/>
+                    <p class="help-block">该昵称将用于登陆和显示</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+
+                <!-- Text input-->
+                <label class="control-label" for="input01">邮件地址：</label>
+                <div class="controls">
+                    <input type="text" placeholder="请输入您的邮件地址" class="input-xlarge"/>
+                    <p class="help-block">方便找回密码和及时获取站里活动信息</p>
+                </div>
+            </div><div class="control-group">
+
+            <!-- Text input-->
+            <label class="control-label" for="input01">登陆密码：</label>
+            <div class="controls">
+                <input type="text" placeholder="请输入您登陆的密码" class="input-xlarge"/>
+                <p class="help-block">请使用字母，数字，和符号的组合</p>
+            </div>
+        </div>
+            <div class="control-group">
+
+                <!-- Text input-->
+                <label class="control-label" for="input01">确认密码：</label>
+                <div class="controls">
+                    <input type="text" placeholder="请再次输入上面的密码" class="input-xlarge"/>
+                    <p class="help-block"></p>
+                </div>
+            </div><div class="control-group">
+            <label class="control-label"></label>
+            <div class="controls">
+                <!-- Multiple Checkboxes -->
+                <label class="checkbox"><a rel="leanModal" href="#showMoreInfo">查看本站规定及相关协议</a></label>
+                <label class="checkbox">
+                    <input type="checkbox" value="我同意本站明文规定及相关协议"/>
+                    我同意本站明文规定及相关协议
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" value="自动登录"/>
+                    自动登录
+                </label>
+            </div>
+
+        </div><div class="control-group">
+            <label class="control-label"></label>
+
+            <!-- Button -->
+            <div class="controls">
+                <button class="btn btn-success">注册用户</button>
+            </div>
+        </div>
+        </fieldset>
+    </form>
+</div>
+<div id="showMoreInfo">
+    <h3 class="title">
+        识途旅游网用户注册协议</h3>
+    <div class="mainbody cls">
+        <div class="treaty_wrap">
+            <div class="body">
+                <div class="jScrollArea">
+                    <p>
+                        在注册前，敬请您阅读以下内容，在进行注册程序过程中点击"立即注册"按钮即表示您已完全接受本协议项下的全部条款。一经用户成功注册，本协议立即生效。如果发生纠纷，注册会员不得以未仔细阅读为由进行抗辩。</p>
+                    <p>
+                        本协议是您与峨眉山乐山大佛旅游网所有者之间就峨眉山乐山大佛旅游网服务等相关事宜所订立的契约，请您仔细阅读本注册协议，您点击"立即注册"按钮后，本协议即构成对双方有约束力的法律文件。</p>
+                    <p class="tc" style="margin-top: 25px;">
+                        <strong>第1条 本站服务条款的确认和接纳</strong></p>
+                    <p>
+                        1.1本站的各项电子服务的所有权和运作权归峨眉山旅游股份有限公司所有。用户同意所有注册协议条款并完成注册程序，才能成为本站的正式用户。用户确认：本协议条款是处理双方权利义务的契约，始终有效，法律另有强制性规定或双方另有特别约定的，依其规定。</p>
+                    <p>
+                        1.2用户点击同意本协议的，即视为用户确认自己具有享受本站服务、下单购物等相应的权利能力和行为能力，能够独立承担法律责任。</p>
+                    <p style="margin-bottom: 15px;">
+                        1.3如果您在18周岁以下，您只能在父母或监护人的监护参与下才能使用本站。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

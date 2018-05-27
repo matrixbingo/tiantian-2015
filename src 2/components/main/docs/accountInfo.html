@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Components · Jasny Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../lib/bootstrapValidator/css/bootstrapValidator.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="../../../lib/step/css/step-dc-style1.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <style type="text/css">
+    </style>
+
+    <script type="text/javascript" src="../../../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../lib/bootstrapValidator/js/bootstrapValidator.js"></script>
+    <script type="text/javascript" src="../../../lib/bootstrapValidator/js/language/zh_CN.js"></script>
+
+    <script src="../../../lib/bootstrap/jquery.bootstrap-growl.min.js"></script>
+    <script type="text/javascript" src="../../../lib/step/step-jquery-dc.js"></script>
+    <script src="../../../lib/libs/md5.js"></script>
+    <script src="../../../lib/utils/cacheUtils.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../../../lib/utils/utils.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="./index.html">Bootstrap</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="./task.html">发布任务</a>
+                    </li>
+                   <!--
+                    <li class="">
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li class="">
+                        <a href="./getting-started.html">Get started</a>
+                    </li>
+                    <li class="">
+                        <a href="./scaffolding.html">Scaffolding</a>
+                    </li>
+                    <li class="">
+                        <a href="./base-css.html">Base CSS</a>
+                    </li>
+
+                    <li class="">
+                        <a href="./javascript.html">JavaScript</a>
+                    </li>
+                    <li class="">
+                        <a href="./customize.html">Customize</a>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>天天生财</h1>
+
+        <p class="lead">天天生财 1234567</p>
+    </div>
+    <a class="extended-badge" href="http://www.jasny.net"><img src="assets/img/extended-by-jasny.png"></a>
+</header>
+
+
+<div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+        <div class="span3 bs-docs-sidebar">
+            <ul class="nav nav-list bs-docs-sidenav">
+                <li><a href="javascript:main.navigation.task()"><i class="icon-chevron-right"></i>发布任务</a></li>
+                <li><a href="javascript:main.navigation.accountInfo()"><i class="icon-chevron-right"></i>账户信息</a></li>
+            </ul>
+        </div>
+        <div class="span9">
+
+            <!-- Dropdowns
+            ================================================== -->
+
+            <section id="releaseTask">
+                <div class="page-header">
+                    <h1>基本信息</h1>
+                </div>
+                <div class="row">
+                    <div class="span5">
+                        <span>密码管理：<a href="javascript:main.navigation.resetPwd()">密码修改</a>&nbsp;&nbsp;用户ID:<span id="userId">212121</span></span>　　
+                    </div>
+                   　
+                    <div class="bs-docs-example">
+                        <div id="accid">
+
+                        </div>
+
+                        <hr/>
+
+
+                    </div>
+
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Modal header</h3>
+    </div>
+    <div class="modal-body">
+        <p>One fine body…</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
+</div>
+
+
+<!-- Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <p>友情提醒：一次性订单数量超过100单，或者客单价超过1000元，请联系平台客服经理</p>
+    </div>
+</footer>
+
+
+<!--End mc_embed_signup-->
+</div>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        main.post(main.action.bindShop,{},function(rep){
+            FormUtil.createTab('accid', main.accountInfo.title, rep.singleResult);
+        });
+    });
+
+
+
+</script>
+</body>
+</html>

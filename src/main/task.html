@@ -1,0 +1,147 @@
+<html>
+<head>
+    <title>天天生财</title>
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <style type="text/css">
+    </style>
+
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+<!-- Navbar -->
+<div id="navbar"></div>
+
+<!-- Subhead  -->
+<div id="subhead"></div>
+
+<div class="container" >
+    <div class="row">
+        <div id="sidebar"></div>
+        <div id="container"></div>
+    </div>
+</div>
+
+<!-- Footer  -->
+<div id="footer"></div>
+
+<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../lib/loaderHandler.js"></script>
+ <script language="JavaScript">
+    loads(loaderHandler.loaders.task, function () {
+
+        $.each(main.modules.taskBase, function(i, v){
+            $('#' + i).load(v);
+        });
+
+        $('#container').load(main.modules.tasks.container);
+
+       /* $('#container').load(main.modules.tasks.container, function(){
+           $(document).ready(function () {
+               var TT_Task = TT_Task || {};
+
+               StepTool.drawStep(1, stepListJson);
+
+               var selectTb = function (obj) {
+                   FormUtil.createRadio('auditPage12', 'auditPage12', obj.tb);
+                   FormUtil.setAbles('step2,step3,step4,zdjd,cgjd', 'show');
+               }
+
+               var selectJd = function (obj) {
+                   FormUtil.createRadio('auditPage12', 'auditPage12', obj.jd);
+                   FormUtil.setAbles('zdjd,cgjd', 'hide');
+                   FormUtil.setAbles('step2,step3,step4', 'show');
+               }
+
+               var selectSp = function() {
+                   FormUtil.setAbles('step2,step3,step4', 'hide');
+               }
+
+               TT_Task.initPage = function(){
+                   var type = CacheUtils.getLocalStorageData(CacheUtils.param.auditPage1.merchantType);
+                   if(type){
+                       var obj = CacheUtils.getLocalStorageData(CacheUtils.param.auditPage1.auditPage1_customerInfo);
+                       switch (parseInt(type)) {
+                           case 1 :
+                               selectTb(obj);
+                               break;
+                           case 2 :
+                               selectJd(obj);
+                               break;
+                           case 3 :
+                               selectSp();
+                               break;
+                       }
+                       FormUtil.initRadios4Local(CacheUtils.param.auditPage1.radioNames);
+                   }else{
+                       main.post(main.action.getCustomerShopInfo, {}, function (rep) {
+                           CacheUtils.setLocalStorageData(CacheUtils.param.auditPage1.auditPage1_customerInfo, rep.singleResult);
+                           FormUtil.createRadio('auditPage12', 'auditPage12', rep.singleResult.tb);
+                       });
+                   }
+               }
+
+               //TT_Task.initPage();
+
+               $("input[name=merchantType]").on('click', function (e) {
+                   var obj = CacheUtils.getLocalStorageData(CacheUtils.param.auditPage1.auditPage1_customerInfo);
+                   switch (parseInt(e.target.value)) {
+                       case 1 :
+                           selectTb(obj);
+                           break;
+                       case 2 :
+                           selectJd(obj);
+                           break;
+                       case 3 :
+                           selectSp();
+                           break;
+                   }
+               });
+           });
+        });
+*/
+        var savePageInfo = function(){
+            CacheUtils.setLocalStorageData(FormUtil.getRadio('merchantType'), CacheUtils.param.auditPage1.merchantType);
+            FormUtil.saveRadios2Local('merchantType,auditPage12,platType,dfType,ttplatType,qplatType', CacheUtils.param.auditPage1.radioNames);
+        }
+
+        var next = function () {
+            var next1 = function(){savePageInfo();
+                //main.toUrl();
+            }
+
+            var next2 = function(){
+                main.toUrl();
+            }
+
+            var nex3 = function(){
+                main.navigation.releaseTask()
+            }
+
+            savePageInfo();
+            var val = FormUtil.getRadio('merchantType');
+            switch (parseInt(val)) {
+                case 1 : next1();
+                    break;
+                case 2 : next2();
+                    break;
+                case 3 :
+                    main.navigation.releaseTask();
+                    break;
+            }
+        }
+
+    });
+</script>
+</body>
+</html>

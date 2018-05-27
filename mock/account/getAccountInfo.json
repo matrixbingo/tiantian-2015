@@ -1,0 +1,90 @@
+{
+  "message": null,
+  "singleResult": {
+    "id": 1,
+    "telephone": "15801765110",
+    "qq": "",
+    "regTime": "2015-11-12",
+    "list": [
+      {
+        "id": 4,
+        "status": 0,
+        "userId": 1,
+        "checkTime": null,
+        "createTime": null,
+        "province": 10,
+        "city": 101,
+        "platId": 1,
+        "platName": "sa1111s",
+        "shopName": "dsfadsf",
+        "linkUrl": "www.osch",
+        "wwId": "2332323232",
+        "town": 787,
+        "provinceName": "江苏省",
+        "cityName": "苏州市",
+        "townName": "昆山市",
+        "validCode": "233232"
+      },
+      {
+        "id": 5,
+        "status": 1,
+        "userId": 1,
+        "checkTime": null,
+        "createTime": null,
+        "province": 10,
+        "city": 101,
+        "platId": 2,
+        "platName": "sas",
+        "shopName": "adsf",
+        "linkUrl": "http://www.oschina.net/question/1037465_162795",
+        "wwId": "12312312",
+        "town": 787,
+        "provinceName": "江苏省",
+        "cityName": "苏州市",
+        "townName": "昆山市",
+        "validCode": "22121"
+      },
+
+      {
+        "id": 16,
+        "status": 0,
+        "userId": 1,
+        "checkTime": null,
+        "createTime": null,
+        "province": 10,
+        "city": 101,
+        "platId": 1,
+        "platName": "sas",
+        "shopName": "收费电视",
+        "linkUrl": "http://www.oschina.net/question/1037465_162795",
+        "wwId": "7654332",
+        "town": 787,
+        "provinceName": "江苏省",
+        "cityName": "苏州市",
+        "townName": "昆山市",
+        "validCode": "111"
+      },
+      {
+        "id": 17,
+        "status": 1,
+        "userId": 1,
+        "checkTime": null,
+        "createTime": null,
+        "province": 10,
+        "city": 110,
+        "platId": 1,
+        "platName": "sas",
+        "shopName": "11111",
+        "linkUrl": "111111111111111",
+        "wwId": "11111",
+        "town": 787,
+        "provinceName": "江苏省",
+        "cityName": "舟山市",
+        "townName": "昆山市",
+        "validCode": "11"
+      }
+    ]
+  },
+  "code": "0"
+}
+ 

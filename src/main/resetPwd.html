@@ -1,0 +1,199 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<html>
+<head>
+    <title>天天生财</title>
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!-- form: -->
+        <section>
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="page-header">
+                    <h2>忘记密码</h2>
+                </div>
+
+                <form id="defaultForm" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">手机号</label>
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control" id="telephone" name="telephone" placeholder="请输入11位手机号" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">手机验证码</label>
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control" name="phoneValidCode" id="phoneValidCode"/>
+                        </div>
+                        <div class="col-lg-3">
+                            <button class="btn btn-info" id="getPhoneValidCode" disabled="true">获取手机验证码</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">验证码</label>
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control" name="validCode" id="validCode"/>
+                        </div>
+                        <div class="col-lg-3">
+                            <img src="" class="img-rounded" id="getPageValidCode" height="32px" width="110px">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">密码</label>
+                        <div class="col-lg-5">
+                            <input type="password" class="form-control" name="password" id="password"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">确认密码</label>
+                        <div class="col-lg-5">
+                            <input type="password" class="form-control" name="surePwd" id="surePwd" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-9 col-lg-offset-3">
+                            <button type="submit" class="btn btn-primary">确认提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- :form -->
+    </div>
+</div>
+
+<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../lib/loaderHandler.js"></script>
+<script type="text/javascript">
+   loads(['bootstrapGrowl', 'bootstrapValidator', 'base', 'md5'], function() {
+$(document).ready(function() {
+    $('#defaultForm')
+            .bootstrapValidator({
+                message: '填写有误',
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    telephone: {
+                        validators: {
+                            notEmpty: {},
+                            integer:{},
+                            regexp: {
+                                regexp: /^0?(13[0-9]|15[012356789]|17[0678]|18[0-9]|14[57])[0-9]{8}$/,
+                                message: '请输入正确的手机号'
+                            }
+                        }
+                    },
+                    phoneValidCode:{
+                        validators: {
+                            notEmpty: {},
+                            regexp: {
+                                regexp: /^[A-Za-z0-9]{6}$/,
+                                message: '请输入6位手机验证码'
+                            }
+                        }
+                    },
+                    validCode: {
+                        validators: {
+                            notEmpty: {},
+                            regexp: {
+                                regexp: /^[A-Za-z0-9]{4}$/,
+                                message: '请输入4位验证码'
+                            }
+                        }
+                    },
+                    password: {
+                        validators: {
+                            notEmpty: {message: '密码不能为空'},
+                            stringLength: {
+                                min:6,
+                                max: 20,
+                                message: '密码长度大于6位小于20位'
+                            }
+                        }
+                    },
+                    surePwd: {
+                        validators: {
+                            notEmpty: {},
+                            identical: {
+                                field: 'password',
+                                message: '两次密码输入不一致'
+                            }
+                        }
+                    }
+                }
+            })
+            .on('error.field.bv', function(e, data) {
+                var messages = data.bv.getMessages(data.field);
+
+                for (var i in messages) {
+                    $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#errors');
+                }
+
+                if(e.target.id == 'telephone'){
+                    $('#getPhoneValidCode').prop("disabled", true);
+                }
+            })
+            .on('success.field.bv', function(e, data) {
+                if(e.target.id == 'telephone'){
+                    $('#getPhoneValidCode').prop("disabled", false);
+                }
+
+            })
+            .on('success.form.bv', function(e) {
+                submitTian(e);
+            })
+            .on('click',function(e){
+                getPhoneValidCode(e);
+
+                getPageValidCode(e);
+
+            });
+
+        var disableSubmitButtons = function(e){
+            e.preventDefault();
+            $('#defaultForm').data('bootstrapValidator').disableSubmitButtons(false);
+        }
+
+        var getPageValidCode = function(e){
+            if(e.target.id === 'getPageValidCode'){
+                disableSubmitButtons(e);
+                document.getElementById("getPageValidCode").src = main.ajax_url + main.action.getPageValidCode + "?"+  new Date().getTime();
+            }
+        }
+
+        var getPhoneValidCode = function(e){
+            if(e.target.id === 'getPhoneValidCode'){
+                disableSubmitButtons(e);
+                main.post(main.action.getPhoneValidCode, {"telephone" : DataUtil.getVal("telephone")}, function(rep){
+                    main.ajaxMsg(rep);
+                })
+            }
+        }
+
+        var submitTian = function(e){
+            disableSubmitButtons(e);
+            var para = DataUtil.getRsJson (['telephone','validCode','phoneValidCode']);
+            para["surePwd"] = hex_md5(DataUtil.getVal('surePwd'));
+            para["password"] = hex_md5(DataUtil.getVal('password'));
+            main.post(main.action.resetAccountPwd, para, function(rep){
+                main.ajaxMsg(rep, main.herf.login);
+            })
+        }
+        document.getElementById("getPageValidCode").src = main.ajax_url + main.action.getPageValidCode + "?"+  new Date().getTime();
+
+    });
+ });
+</script>
+</body>
+</html>

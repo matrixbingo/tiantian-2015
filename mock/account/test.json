@@ -1,0 +1,129 @@
+[
+  {
+    "name": "BD仪表盘",
+    "url": "/report-new/bd-board/bd",
+    "icon": "",
+    "roleIds": "1,3,5,11,15,19,91"
+  },
+  {
+    "name": "销售门店交易表",
+    "url": "/report-new/trade-shop",
+    "icon": "",
+    "roleIds": "1,3,11,15,17,19,5,91"
+  },
+  {
+    "name": "商机获取-全部",
+    "url": "/shops#!/shop/all",
+    "icon": "",
+    "roleIds": "1,3,11,15,19,5,91"
+  },
+  {
+    "name": "我的拜访",
+    "url": "/visit/vt/my",
+    "icon": "",
+    "roleIds": "1,3,11,15,19,5,91"
+  },
+  {
+    "name": "创建团购方案",
+    "url": "/da/create-deal-group",
+    "icon": "",
+    "roleIds": "1,3,11,15,17,19"
+  },
+  {
+    "name": "创建闪惠方案",
+    "url": "/solution/hui/main#/",
+    "icon": "",
+    "roleIds": "1,3,11,15,17,19"
+  },
+  {
+    "name": "客户管理",
+    "url": "/crm#!/customer/search",
+    "icon": "",
+    "roleIds": "1,3,11,15,19,5,91"
+  },
+  {
+    "name": "我的流程",
+    "url": "/audit/my-process",
+    "icon": "",
+    "roleIds": "1,3,11,15,19,5,91"
+  },
+  {
+    "name": "创建电影选座方案",
+    "url": "/film/produce/create-film",
+    "icon": "",
+    "roleIds": "5"
+  },
+  {
+    "name": "创建KTV预定方案",
+    "url": "/solution/ktv/manage/create",
+    "icon": "",
+    "roleIds": "91"
+  },
+  {
+    "name": "主管仪表盘",
+    "url": "/report-new/dashboard/org",
+    "icon": "",
+    "roleIds": "2,4,6,12,16,18,20"
+  },
+  {
+    "name": "生产力报表",
+    "url": "/report-new/productivity/productivity",
+    "icon": "",
+    "roleIds": "2,4,6,12,16,18,20"
+  },
+  {
+    "name": "主管门店交易表",
+    "url": "/report-new/trade-shop-manager",
+    "icon": "",
+    "roleIds": "2,4,6,12,16,18,20"
+  },
+  {
+    "name": "陪访统计",
+    "url": "/report-new/visit/partner",
+    "icon": "",
+    "roleIds": "2,4,6,12,16,20"
+  },
+  {
+    "name": "待我审批",
+    "url": "/audit/todo",
+    "icon": "",
+    "roleIds": "2,4,6,12,16,20"
+  },
+  {
+    "name": "推广方案列表",
+    "url": "/midasrb/apollo/page/planList",
+    "icon": "",
+    "roleIds": "7,13,21,8,14,22,9,10"
+  },
+  {
+    "name": "拜访管理",
+    "url": "/customer/visit",
+    "icon": "",
+    "roleIds": "7,13,21,9"
+  },
+  {
+    "name": "协议管理",
+    "url": "/crm/contractInfo/list",
+    "icon": "",
+    "roleIds": "7,13,21,9"
+  },
+  {
+    "name": "门店管理",
+    "url": "/shops#!/shop/all",
+    "icon": "",
+    "roleIds": "7,13,21,8,14,22,9,10"
+  },
+  {
+    "name": "拜访统计",
+    "url": "/ad-report/visit",
+    "icon": "",
+    "roleIds": "8,14,22,10"
+  },
+  {
+    "name": "陪访统计",
+    "url": "/ad-report/partner-visit",
+    "icon": "",
+    "roleIds": "8,14,22,10"
+  }
+
+]

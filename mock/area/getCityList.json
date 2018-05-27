@@ -1,0 +1,21 @@
+{
+  "message": "",
+  "code": "0",
+  "singleResult": [
+    {
+      "id": "1",
+      "provinceId": "1",
+      "cityName": "a"
+    },
+    {
+      "id": "2",
+      "provinceId": "1",
+      "cityName": "bbb"
+    },
+    {
+      "id": "3",
+      "provinceId": "1",
+      "cityName": "ccc"
+    }
+  ]
+}

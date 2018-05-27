@@ -1,0 +1,21 @@
+{
+  "message": "密码或用户名错误!",
+  "code": "0",
+  "singleResult": [
+    {
+      "id":"1",
+      "cityId":"1",
+      "townName":"aaa"
+    },
+    {
+      "id":"1",
+      "cityId":"1",
+      "townName":"aaa"
+    },
+    {
+      "id":"1",
+      "cityId":"1",
+      "townName":"aaa"
+    }
+  ]
+}

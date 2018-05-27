@@ -1,0 +1,26 @@
+{
+  "message": "",
+  "code": "0",
+  "singleResult": [
+    {
+      "platId": 1,
+      "shopName": "2121",
+      "linkUrl": "2121",
+      "validCode": "2121",
+      "wwId": "2121",
+      "province": "2121",
+      "city": "2121",
+      "town": "2121"
+    },
+    {
+      "platId": 1,
+      "shopName": "2121",
+      "linkUrl": "2121",
+      "validCode": "2121",
+      "wwId": "2121",
+      "province": "2121",
+      "city": "2121",
+      "town": "2121"
+    }
+  ]
+}

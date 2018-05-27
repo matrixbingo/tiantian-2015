@@ -1,0 +1,134 @@
+<!-- 淘宝/天猫 PC 手机垫付 -->
+<!-- 搜索关键字 -->
+<script id="searchKeyTemplate" type="text/html">
+    <div id="{{searchKeyId}}">
+        <div class="span2">
+            <label class="control-label">搜索关键词{{index}}:</label>
+        </div>
+        <div class="tt-span6 form-inline">
+            <input class="tt-task-input" data-group="g1" data-id="keyWord" id="keyWord{{index}}" type="text">
+            <label>放单数：</label>
+            <input class="tt-task-input-50"  data-group="g1" data-id="orderNum" id="orderNum{{index}}" type="text">件
+            <button class="btn btn-link" data-keyId="{{searchKeyId}}"
+                    onclick="TT_Task.removeSearchKey('{{searchKeyId}}')" type="button">删除关键词
+            </button>
+        </div>
+    </div>
+</script>
+<!-- 放单时段 -->
+<script id="addputTimesTemplate" type="text/html">
+    <div class="row tt-padding-bottom" id="{{id}}">
+        <div class="form-inline">
+            <label style="padding: 5px 10px 0px 50px;">放单开始时间</label>
+            <input id="startTime{{index}}" data-group="g2" data-id="startTime" class="Wdate tt-task-input-160" type="text" onFocus="var endTime=$dp.$('endTime{{index}}');WdatePicker({onpicked:function(){endTime.focus();},maxDate:'#F{$dp.$D(\'endTime{{index}}\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly/>
+            —放单停止时间
+            <input id="endTime{{index}}" data-group="g2" data-id="endTime" class="Wdate tt-task-input-160" type="text" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'startTime{{index}}\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly/>
+            <label>放单数量</label>
+            <input class="tt-task-input-50" id="showorderNum{{index}}" data-group="g2" data-id="orderNum" type="text">
+            <button class="btn btn-link" onclick="TT_Task.removeputTimesKey('{{id}}')" type="button">删除时间段</button>
+        </div>
+    </div>
+</script>
+<!-- 附加商品 -->
+<script id="addMerchanetTemplate" type="text/html">
+    <div class="tt-well form-inline" id="{{id}}">
+
+        <div class="tt-btn-right">
+            <button class="btn btn-danger" onclick="TT_Task.removeMerchantKey('{{id}}')" type="button">删除商品</button>
+        </div>
+
+        <div class="form-inline" style="padding: 8px 0; margin-bottom: 0;margin-right:100px">
+            <ul class="nav">
+                <li>
+                    <div class="row">
+                        <div class="span8">
+                            <div class="control-group">
+                                <label class="control-label ">商品主图</label>
+
+                                <div class="controls">
+                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                        <div class="fileupload-new thumbnail" style="width: 50px; height: 50px;"><img src="../lib/img/default_upic.png"/></div>
+                                        <div class="fileupload-preview fileupload-exists thumbnail" style="width: 50px; height: 50px;"></div>
+                                        <span class="btn btn-file"><span class="fileupload-new">选择图片</span><span class="fileupload-exists">更换</span>
+                                            <input type="file" data-group="g3" data-id="commodityPhoto" id="commodityPhoto{{index}}"/></span>
+                                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="span8">
+                            <div class="control-group">
+                                <label class="control-label">链接</label>
+                                <div class="controls">
+                                    <input class="tt-task-input-200" type="text" data-group="g3" data-id="commodityHref" id="commodityHref{{index}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-inline">
+                        <label class="tt-padding-5">商品单价</label>
+                        <input class="tt-task-input-100" type="text" data-group="g3" data-id="commodityPrice" id="commodityPrice{{index}}">元/件
+                        <label class="tt-padding-5">每个订单含该商品数量</label>
+                        <input class="tt-task-input" type="text" data-group="g3" data-id="commodityOorderNum" id="commodityOorderNum{{index}}">件
+                    </div>
+                </li>
+            </ul>
+        </div>
+</script>
+
+<script id="taskAmountTaoBaoStep2Template" type="text/html">
+    <table class="table table-bordered ">
+        <thead>
+        <tr>
+            <th></th>
+            <th class="tt-td-middle">单价</th>
+            <th class="tt-td-middle">件/单</th>
+            <th class="tt-td-middle">邮费</th>
+            <th class="tt-td-middle">总基础金额</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="tt-td-middle">主商品</td>
+            <td class="tt-td-middle"></td>
+            <td class="tt-td-middle">Otto</td>
+            <td class="tt-td-middle">@mdo</td>
+            <td rowspan="4" class="tt-td-middle">@212121</td>
+        </tr>
+        <tr>
+            <td class="tt-td-middle">附加商品1</td>
+            <td class="tt-td-middle">Otto</td>
+            <td class="tt-td-middle">@TwBootstrap</td>
+            <td class="tt-td-middle">@mdo</td>
+        </tr>
+        <tr>
+            <td class="tt-td-middle">附加商品2</td>
+            <td class="tt-td-middle">Jacob</td>
+            <td class="tt-td-middle">Thornton</td>
+            <td class="tt-td-middle">@fat</td>
+        </tr>
+        <tr>
+            <td class="tt-td-middle">基础佣金</td>
+            <td class="tt-td-middle">Larry the Bird</td>
+            <td class="tt-td-middle">@twitter</td>
+            <td class="tt-td-middle">@mdo</td>
+        </tr>
+        </tbody>
+    </table>
+</script>
+
+<script id="niceValidator" type="text/html">
+    <span class="msg-box n-top" style="" for="commodityName">
+        <span role="alert" class="msg-wrap n-error">
+            <span class="n-arrow"><b>◆</b><i>◆</i></span>
+            <span class="n-icon"></span>
+            <span class="n-msg">{{}}</span>
+        </span>
+    </span>
+</script>

@@ -1,0 +1,38 @@
+[
+  {
+    categoryID: 101,
+    categoryName: "商机推荐",
+    jmpUrl: "http://h5.51ping.com/apollo/notify/todo-list-detail.html?itemId=101&title=商机推荐",
+    latestTaskAddTime: null,
+    latestTaskTitle: "无",
+    todoTaskCount: 0,
+    urlType: "web"
+  },
+  {
+    categoryID: 102,
+    categoryName: "审批动态",
+    jmpUrl: "http://h5.51ping.com/apollo/notify/todo-list-detail.html?itemId=102&title=审批动态",
+    latestTaskAddTime: null,
+    latestTaskTitle: "无",
+    todoTaskCount: 0,
+    urlType: "web"
+  },
+  {
+    categoryID: 103,
+    categoryName: "方案维护",
+    jmpUrl: "http://h5.51ping.com/apollo/notify/todo-list-detail.html?itemId=103&title=方案维护",
+    latestTaskAddTime: null,
+    latestTaskTitle: "无",
+    todoTaskCount: 0,
+    urlType: "web"
+  },
+  {
+    categoryID: 104,
+    categoryName: "客户投诉",
+    jmpUrl: "http://h5.51ping.com/apollo/notify/todo-list-detail.html?itemId=104&title=客户投诉",
+    latestTaskAddTime: null,
+    latestTaskTitle: "无",
+    todoTaskCount: 0,
+    urlType: "web"
+  }
+]

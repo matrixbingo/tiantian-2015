@@ -1,0 +1,47 @@
+
+select t.dt as '日期-周', SUM(t.nums) as '解决总数量', SUM(t.ass1) as '转签1次', SUM(t.ass2) as '转签2到3次', SUM(t.ass3) as '转签3到5次', SUM(t.ass4) as '转签5次以上'
+from(
+	select DATE_FORMAT(t1.addtime, '%Y年-%u') as dt,  COUNT(1) as nums, SUM(t1.num) as ass1, 0 as ass2, 0 as ass3, 0 as ass4 from (
+		select t1.id, t1.status, t1.addtime, t1.addtime, t3.num from TP_Question t1
+		inner join ( select questionid, count(1) as num from TP_OwnerHistory group by questionid HAVING num = 1 ) t3 on t1.id = t3.questionid
+		where t1.status = 2
+	) t1
+	where t1.status = 2
+	and DATEDIFF(t1.addtime, t1.addtime) > 1
+	group by DATE_FORMAT(t1.addtime, '%Y%u')
+
+	UNION ALL
+
+	select DATE_FORMAT(t1.addtime, '%Y年-%u') as dt,  COUNT(1) as nums, 0 as ass1, SUM(t1.nums) as ass2, 0 as ass3, 0 as ass4 from (
+		select t1.id, t1.status, t1.addtime, t1.addtime, t3.nums from TP_Question t1
+		inner join ( select questionid, 1 as nums, count(1) as num from TP_OwnerHistory group by questionid HAVING num > 1 and num <=3 ) t3 on t1.id = t3.questionid
+		where t1.status = 2
+	) t1
+	where t1.status = 2
+	and DATEDIFF(t1.addtime, t1.addtime) > 1
+	group by DATE_FORMAT(t1.addtime, '%Y%u')
+
+	UNION ALL
+
+	select DATE_FORMAT(t1.addtime, '%Y年-%u') as dt,  COUNT(1) as nums, 0 as ass1, 0 as ass2, SUM(t1.nums) as ass3, 0 as ass4 from (
+		select t1.id, t1.status, t1.addtime, t1.addtime, t3.nums from TP_Question t1
+		inner join ( select questionid, 1 as nums, count(1) as num from TP_OwnerHistory group by questionid HAVING num > 3 and num <=5 ) t3 on t1.id = t3.questionid
+		where t1.status = 2
+	) t1
+	where t1.status = 2
+	and DATEDIFF(t1.addtime, t1.addtime) > 1
+	group by DATE_FORMAT(t1.addtime, '%Y%u')
+
+	UNION ALL
+
+	select DATE_FORMAT(t1.addtime, '%Y年-%u') as dt,  COUNT(1) as nums, 0 as ass1, 0 as ass2, 0 as ass3, SUM(t1.nums) as ass4 from (
+		select t1.id, t1.status, t1.addtime, t1.addtime, t3.nums from TP_Question t1
+		inner join ( select questionid, 1 as nums, count(1) as num from TP_OwnerHistory group by questionid HAVING num > 5 ) t3 on t1.id = t3.questionid
+		where t1.status = 2
+	) t1
+	where t1.status = 2
+	and DATEDIFF(t1.addtime, t1.addtime) > 1
+	group by DATE_FORMAT(t1.addtime, '%Y%u')
+) t
+GROUP BY t.dt
+order by t.dt desc

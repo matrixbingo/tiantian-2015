@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Components · Jasny Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../lib/bootstrapValidator/css/bootstrapValidator.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="../../../lib/step/css/step-dc-style1.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <style type="text/css">
+    </style>
+
+    <script type="text/javascript" src="../../../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../lib/bootstrapValidator/js/bootstrapValidator.js"></script>
+    <script type="text/javascript" src="../../../lib/bootstrapValidator/js/language/zh_CN.js"></script>
+
+    <script src="../../../lib/bootstrap/jquery.bootstrap-growl.min.js"></script>
+    <script type="text/javascript" src="../../../lib/step/step-jquery-dc.js"></script>
+    <script src="../../../lib/libs/md5.js"></script>
+    <script src="../../../lib/utils/cacheUtils.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../../../lib/utils/utils.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="./index.html">Bootstrap</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="./task.html">发布任务</a>
+                    </li>
+                   <!--
+                    <li class="">
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li class="">
+                        <a href="./getting-started.html">Get started</a>
+                    </li>
+                    <li class="">
+                        <a href="./scaffolding.html">Scaffolding</a>
+                    </li>
+                    <li class="">
+                        <a href="./base-css.html">Base CSS</a>
+                    </li>
+
+                    <li class="">
+                        <a href="./javascript.html">JavaScript</a>
+                    </li>
+                    <li class="">
+                        <a href="./customize.html">Customize</a>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>天天生财</h1>
+
+        <p class="lead">天天生财 1234567</p>
+    </div>
+    <a class="extended-badge" href="http://www.jasny.net"><img src="assets/img/extended-by-jasny.png"></a>
+</header>
+
+
+<div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+        <div class="span3 bs-docs-sidebar">
+            <ul class="nav nav-list bs-docs-sidenav">
+                <li><a href="javascript:main.navigation.task()"><i class="icon-chevron-right"></i>发布任务</a></li>
+                <li><a href="javascript:main.navigation.accountInfo()"><i class="icon-chevron-right"></i>账户信息</a></li>
+            </ul>
+        </div>
+        <div class="span9">
+
+            <!-- Dropdowns
+            ================================================== -->
+
+            <section id="releaseTask">
+                <div class="page-header">
+                    <h1>选择任务类型</h1>
+                </div>
+                <div class="step_context step_context_id"></div>
+<pre class="prettyprint linenums">
+所有商家都要注意在天天生财刷单务必严格控制好以下3点：
+1. &nbsp;&nbsp;物流一定要有真实物流记录，一定要有重量并且重量跟真实商品一致！一定不要网上买那些小快递的，便宜的空包；目前可以选用网站提供
+    &nbsp;&nbsp;的空包
+2. &nbsp;&nbsp;刷单比例一定不要过高，最高最高不能超过40%
+3. &nbsp;&nbsp;移动端搜索转化率务必不要过高，保持在行业平均转化率的1.5倍左右最佳
+</pre>
+
+                <div id="checkForm" class="row">
+                    <div class="span2">
+                        <div class="divRigthsolid">
+                            <h4 class="tt">第一步：选平台</h4>
+
+                            <div id="merchantType">
+                                <label class="radio">
+                                    <input type="radio" name="merchantType" value="1" checked>
+                                    淘宝/天猫
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="merchantType" value="2">京东
+                                </label>
+
+                                <label class="radio">
+                                    <input type="radio" name="merchantType" value="3">
+                                    特殊任务
+                                    <p><span>• </span><span>其它平台任务</span></p>
+
+                                    <p><span>• </span><span>量大任务</span></p>
+
+                                    <p><span>• </span><span>超高单价任务</span></p>
+
+                                    <p><span>• </span><span>其它</span></p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span2">
+                        <div class="divRigthsolid">
+                            <div id="step2">
+                                <h4 class="tt">第二步：选店铺</h4>
+
+                                <div id="auditPage12"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span2" style="width: 150px">
+                        <div id="step3">
+                            <div class="divRigthsolid">
+                                <h4 class="tt">第三步：选终端</h4>
+                                <label class="radio">
+                                    <input type="radio" name="platType" value="2" checked>
+                                    手机端
+                                </label>
+                                <label class="radio" id="zdjd">
+                                    <input type="radio" name="platType" value="1">
+                                    PC端
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <div id="step4">
+                            <h4 class="tt">第四步：选任务</h4>
+
+                            <h6 class="tt">常规任务:</h6>
+                            <label class="radio">
+                                <input type="radio" name="dfType" value="1" checked>
+                                垫付任务（普通搜索、直通车)
+                            </label>
+
+                            <div id="cgjd">
+                                <label class="radio">
+                                    <input type="radio" name="dfType" value="2">
+                                    浏览任务（普通搜索、直通车)
+                                </label>
+
+                                <h6 class="tt">天天生财特色垫付任务:</h6>
+                                <ul class="f-cb plat-sel p-r">
+                                    <label class="radio">
+                                        <input type="radio" name="ttplatType" value="2"> checked
+                                        隔天任务
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="ttplatType" value="2">
+                                        定制回头客任务
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="ttplatType" value="2">
+                                        全钻号任务
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="ttplatType" value="2">
+                                        直通车任务
+                                    </label>
+                                </ul>
+
+                                <h6 class="tt">快速任务:（无需浏览，快速完成）</h6>
+                                <ul class="f-cb plat-sel p-r">
+                                    <label class="radio">
+                                        <input type="radio" name="qplatType" value="2" >
+                                        垫付任务（聚划算、淘抢购、淘清仓、双11、双12等
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="qplatType" value="2">
+                                        点击任务（聚划算开团提醒，淘抢购提醒等）
+                                    </label>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <p>
+                <button class="btn btn-warning" type="button">我要全托，点击联系我的专属客服经理</button>
+                <button class="btn btn-success" type="button" onclick="next()">下一步</button>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <p>友情提醒：一次性订单数量超过100单，或者客单价超过1000元，请联系平台客服经理</p>
+    </div>
+</footer>
+
+
+<!--End mc_embed_signup-->
+</div>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script type="text/javascript">
+    var TT_Task = TT_Task || {};
+
+    StepTool.drawStep(1, stepListJson);
+
+    var selectTb = function (obj) {
+        FormUtil.createRadio('auditPage12', 'auditPage12', obj.tb);
+        FormUtil.setAbles('step2,step3,step4,zdjd,cgjd', 'show');
+    }
+
+    var selectJd = function (obj) {
+        FormUtil.createRadio('auditPage12', 'auditPage12', obj.jd);
+        FormUtil.setAbles('zdjd,cgjd', 'hide');
+        FormUtil.setAbles('step2,step3,step4', 'show');
+    }
+
+    var selectSp = function() {
+        FormUtil.setAbles('step2,step3,step4', 'hide');
+    }
+
+    TT_Task.initPage = function(){
+        var type = CacheUtils.getLocalStorageData(CacheUtils.param.auditPage1.merchantType);
+        if(type){
+            var obj = CacheUtils.getLocalStorageData(CacheUtils.param.auditPage1.auditPage1_customerInfo);
+            switch (parseInt(type)) {
+                case 1 :
+                    selectTb(obj);
+                    break;
+                case 2 :
+                    selectJd(obj);
+                    break;
+                case 3 :
+                    selectSp();
+                    break;
+            }
+            FormUtil.initRadios4Local(CacheUtils.param.auditPage1.radioNames);
+        }else{
+            main.post(main.action.getCustomerShopInfo, {}, function (rep) {
+                CacheUtils.setLocalStorageData(CacheUtils.param.auditPage1.auditPage1_customerInfo, rep.singleResult);
+                FormUtil.createRadio('auditPage12', 'auditPage12', rep.singleResult.tb);
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        (function () {
+            TT_Task.initPage();
+        })();
+
+        $("input[name=merchantType]").on('click', function (e) {
+            var obj = CacheUtils.getLocalStorageData(CacheUtils.param.auditPage1.auditPage1_customerInfo);
+            switch (parseInt(e.target.value)) {
+                case 1 :
+                    selectTb(obj);
+                    break;
+                case 2 :
+                    selectJd(obj);
+                    break;
+                case 3 :
+                    selectSp();
+                    break;
+            }
+        });
+    });
+
+
+    var savePageInfo = function(){
+        CacheUtils.setLocalStorageData(FormUtil.getRadio('merchantType'), CacheUtils.param.auditPage1.merchantType);
+        FormUtil.saveRadios2Local('merchantType,auditPage12,platType,dfType,ttplatType,qplatType', CacheUtils.param.auditPage1.radioNames);
+    }
+
+    var next = function () {
+        var next1 = function(){savePageInfo();
+            //main.toUrl();
+        }
+
+        var next2 = function(){
+            main.toUrl();
+        }
+
+        var nex3 = function(){
+            main.navigation.releaseTask()
+        }
+
+        savePageInfo();
+        var val = FormUtil.getRadio('merchantType');
+        switch (parseInt(val)) {
+            case 1 : next1();
+                break;
+            case 2 : next2();
+                break;
+            case 3 :
+                main.navigation.releaseTask()
+                break;
+        }
+    }
+</script>
+</body>
+</html>

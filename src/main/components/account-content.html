@@ -1,0 +1,68 @@
+<div class="page-header">
+    <h2 style="padding: 1px 10px 1px 10px;">增加绑定店铺</h2>
+
+    <table class="table table-striped ">
+        <tbody>
+        <tr>
+            <td style="text-align:right;">请选择平台：</td>
+            <td>
+                <select class="select sel-plat"
+                        style="margin-top: 1px;margin-bottom: 1px;*position: relative;*top: 2px;width:97px;height: 20px;"
+                        id="platId" name="platId" onchange="changetype(this)">
+                    <option value="0">请选择...</option>
+                    <option value="1">淘宝网</option>
+                    <option value="2">京东</option>
+                </select>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">店铺名称：</td>
+            <td>
+                <input type="text" name="shopName" id="shopName">
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">店铺首页网址：</td>
+            <td><input type="text" name="linkUrl" id="linkUrl"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">店铺主旺旺ID：</td>
+            <td><input type="text" name="wwId" id="wwId"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">发件地址：</td>
+            <td rowspan="2">
+                省份：
+                <select id="province" style="width: 100px">
+                    <option value="">请选择省份</option>
+                </select>
+                市：
+                <select id="city" style="width: 100px">
+                    <option value="">请选择市</option>
+                </select>
+                县：
+                <select id="town" style="width: 100px">
+                    <option value="">请选择县</option>
+                </select>
+            </td>
+        </tr>
+        <!-- <tr>
+             <td colspan="3"><span class="muted"> (若无法选择请按Ctrl+F5键强制刷新页面，或者选用<a class="striking" href="http://www.google.cn/intl/zh-CN/chrome/browser/desktop/index.html" target="_blank" title="官方下载地址，若不能打开请去百度下载">Chrome浏览器</a>重试)</span></td>
+         </tr>-->
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p style="text-align:center;">
+        <button class="btn btn-info" id="submitbtn" type="button">确认提交</button>
+        <button class="btn btn-danger" ii="cancelbtn" type="button">取消退出</button>
+    </p>
+</div>

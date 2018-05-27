@@ -1,0 +1,351 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" media="screen" href="address.css">
+    <script src="../../src/lib/jquery/jquery.min.js"></script>
+    <!--<script src="../lib/jsloader.js"></script>-->
+    <script src="../../src/lib/loaderHandler.js"></script>
+    <script src="../../demos/test/underscore.js"></script>
+    <script language="JavaScript">
+
+        var list = [
+            {author: "Shakespeare", title: "china"},
+            {author: "Shakespeare", year: 2222, title: "china"},
+            {name: "zhongguo"},
+            {author: "Shakespeare", title: "china"},
+            {author: "Shakespeare", year: 1611, title: "china"},
+            {name: "zhongguo"}
+        ];
+
+        var newArr = _.where(list, {author: "Shakespeare", year: 2222});
+        console.log(newArr);
+
+        console.log('----------');
+        $(document).ready(function () {
+            var i = 0
+            while (i < 6) {
+                var img = new Image();
+                img.src = "http://i7.download.fd.pchome.net/g1/M00/11/1D/oYYBAFYyydSIMkNIAAgcJEk3wJMAACwMwHJ_vYACBw8854.jpg";
+                img.onload = function () {
+                    console.log(i);
+                };
+                i++;
+            }
+        });
+
+        loads(loaderHandler.loaders.task, function () {
+            $(document).ready(function () {
+                $('#input').on('click', function () {
+                    window.open('', '_self').close();
+                    //console.log(DataUtil.getRsJson(['constellation', 's2']));
+
+                    var json = {
+                        ids: ['text02', 'text01', 'constellation', 's2'],
+                        group: {
+                            'list111': ['g1', 'g2'],
+                            'rs111': ['g3', 'g4']
+                        }
+                    };
+
+//                        checkbox: {
+//                            'checkbox111': {
+//                                group: {
+//                                    'rs221212': ['g5', 'g6']
+//                                },
+//                                ids: ['constellation', 'text03'],
+//                                checkbox: {
+//                                    'Health': ['text02', 'text01'],
+//                                    group: {
+//                                        'list2121212': ['g1', 'g2']
+//                                    }
+//                                }
+//                            }
+//                            ,
+//
+//                            checkbox111: ['text03'],
+//
+//                            Education: {
+//                                checkbox: {
+//                                    'Health': ['constellation', 'text01'],
+//                                    group: {
+//                                        'list': ['g1', 'g2'],
+//                                        'rs': ['g3', 'g4']
+//                                    }
+//                                },
+//                                ids: ['text02']
+//                            }
+//
+//                        }
+//                    }
+
+                    var data = {
+                        id1: 121212, jiaoyu: 6, constellation: 'Taurus', camera: 'Nikon'
+                    }
+
+                    DataUtil.setVals(data);
+
+
+                    console.log(JSON.stringify(DataUtil.getRsJson(json)));
+                    //$("#text02").val(333333);
+                    //DataUtil.setVal('text01' , 'vinput111122');
+                    /* var val = document.getElementById('text01');
+                     console.log(val);
+                     */
+                    //console.log(DataUtil.getVal('te);
+                });
+
+
+            });
+        });
+    </script>
+</head>
+
+<input type="text" data-group="g1" data-id="i1" id="id1" maxlength="250" value="1"/>
+<input type="text" data-group="g1" data-id="i2" id="id2" maxlength="250" value="2"/>
+
+<input type="text" data-group="g2" data-id="i1" id="id3" maxlength="250" value="3"/>
+<input type="text" data-group="g2" data-id="i2" id="id4" maxlength="250" value="4"/>
+
+<input type="text" data-group="g3" data-id="i31" id="id5" maxlength="250" value="5"/>
+<input type="text" data-group="g3" data-id="i32" id="id6" maxlength="250" value="6"/>
+
+<input type="text" data-group="g4" data-id="i31" id="id7" maxlength="250" value="7"/>
+<input type="text" data-group="g4" data-id="i32" id="id8" maxlength="250" value="8"/>
+
+<input type="text" data-group="g5" data-id="i31" id="id17" maxlength="250" value="7"/>
+<input type="text" data-group="g5" data-id="i32" id="id18" maxlength="250" value="8"/>
+
+<input type="text" data-group="g6" data-id="i31" id="id171" maxlength="250" value="7"/>
+<input type="text" data-group="g6" data-id="i32" id="id181" maxlength="250" value="8"/>
+
+
+<input type="checkbox" name="jiaoyu" value="0" id="checkbox111" checked>checkbox
+
+<input type="checkbox" name="jiaoyu" value="0" id="Education" checked>教育
+<input type="checkbox" name="jiaoyu" value="1" id="Health" checked>卫生
+<input type="checkbox" name="jiaoyu" value="2" id="ConstructionCommittee" checked>建委
+<input type="checkbox" name="jiaoyu" value="3" id="Street">街道
+<input type="checkbox" name="jiaoyu" value="4" id="Culture">文化
+<input type="checkbox" name="jiaoyu" value="5" id="Police">公安
+<input type="checkbox" name="jiaoyu" value="6" id="DistrictGovernment">区府办
+<input type="checkbox" name="jiaoyu" value="7" id="Others">其他
+
+<p>
+    <input type="radio" name="camera" id="canon" value="Canon">
+    <label for="canon">Canon</label>
+</p>
+
+<p>
+    <input type="radio" name="camera" id="nikon" value="Nikon">
+    <label for="nikon">Nikon</label>
+</p>
+
+<p>
+    <input type="radio" name="camera" id="sony" value="Sony" checked>
+    <label for="sony">Sony</label>
+</p>
+
+
+<input type="text" name="text02" id="text02" maxlength="250"/>
+
+<input type="text" name="text01" value="2121212" disabled="disabled"/>
+
+
+<input type="text" name="text03" value="212121212" disabled="disabled"/>
+
+
+<select name="constellation">
+    <option value="Aries" selected="selected">白羊</option>
+    <option value="Taurus">金牛</option>
+    <option value="Gemini">双子</option>
+    <option value="Cancer">巨蟹</option>
+    <option value="Leo">狮子</option>
+    <option value="Virgo">处女</option>
+    <option value="Libra">天秤</option>
+    <option value="Scorpio">天蝎</option>
+    <option value="Sagittarius">射手</option>
+    <option value="Capricorn">摩羯</option>
+    <option value="Aquarius">水瓶</option>
+    <option value="Pisces">双鱼</option>
+</select>
+
+
+<select name="s2" multiple="multiple" style="height:180px;">
+    <option value="Aries">白羊</option>
+    <option value="Taurus">金牛</option>
+    <option value="Gemini">双子</option>
+    <option value="Cancer">巨蟹</option>
+    <option value="Leo">狮子</option>
+    <option value="Virgo">处女</option>
+    <option value="Libra">天秤</option>
+    <option value="Scorpio">天蝎</option>
+    <option value="Sagittarius">射手</option>
+    <option value="Capricorn">摩羯</option>
+    <option value="Aquarius">水瓶</option>
+    <option value="Pisces">双鱼</option>
+</select>
+
+
+<input type="button" id="input" value="222"/>
+
+<div style="border:2px #ccc solid;border-radius:10px;width:360px;height:60px;background-color:#eee;">CSS3 border-radius
+    圓角範例
+</div>
+
+<!--
+<div class="address-wrap">
+    <input class="upaddress" type="hidden" value="上海">
+    <div class="goodsaddress f-fl" title="上海">
+        <span class="">上海</span>
+        <span class="up-down-trian f-db" style="background: url(&quot;http://www.xiaowangcai.com/images/updowntriangle.png&quot;) 0px 0px no-repeat;"></span>
+    </div>
+    <div class="alladdress" style="">
+        <div class="coverborder"></div>
+        <div class="hotcity">
+            <table>
+                <tbody><tr>
+                    <td width="16.66%"><a href="javascript:void(0)">北京</a></td>
+                    <td width="16.66%"><a href="javascript:void(0)">上海</a></td>
+                    <td width="16.66%"><a href="javascript:void(0)">广州</a></td>
+                    <td width="16.66%"><a href="javascript:void(0)">深圳</a></td>
+                    <td width="16.66%"><a href="javascript:void(0)">杭州</a></td>
+                    <td width="16.66%"><a href="javascript:void(0)">海外</a></td>
+                </tr>
+                <tr>
+                    <td><a href="javascript:void(0)">江浙沪</a></td>
+                    <td><a href="javascript:void(0)">珠三角</a></td>
+                    <td><a href="javascript:void(0)">港澳台</a></td>
+                    <td><a href="javascript:void(0)">&lt;!&ndash;京津冀&ndash;&gt;</a></td>
+                    <td><a href="javascript:void(0)">&lt;!&ndash;东三省&ndash;&gt;</a></td>
+                    <td><a href="javascript:void(0)">&lt;!&ndash;江浙沪皖&ndash;&gt;</a></td>
+                </tr>
+                </tbody></table>
+        </div>
+        <div class="provincity">
+            <table>
+                <tbody><tr>
+                    <td width="12.5%"><a href="javascript:void(0)">长沙</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">长春</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">成都</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">重庆</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">大连</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">东莞</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">福州</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">中山</a></td>
+                </tr>
+                <tr>
+                    <td><a href="javascript:void(0)">贵阳</a></td>
+                    <td><a href="javascript:void(0)">合肥</a></td>
+                    <td><a href="javascript:void(0)">郑州</a></td>
+                    <td><a href="javascript:void(0)">济南</a></td>
+                    <td><a href="javascript:void(0)">昆明</a></td>
+                    <td><a href="javascript:void(0)">宁波</a></td>
+                    <td><a href="javascript:void(0)">南昌</a></td>
+                    <td><a href="javascript:void(0)">武汉</a></td>
+                </tr>
+                <tr>
+                    <td><a href="javascript:void(0)">南京</a></td>
+                    <td><a href="javascript:void(0)">青岛</a></td>
+                    <td><a href="javascript:void(0)">泉州</a></td>
+                    <td><a href="javascript:void(0)">沈阳</a></td>
+                    <td><a href="javascript:void(0)">苏州</a></td>
+                    <td><a href="javascript:void(0)">天津</a></td>
+                    <td><a href="javascript:void(0)">温州</a></td>
+                    <td><a href="javascript:void(0)">无锡</a></td>
+                </tr>
+                <tr>
+                    <td><a href="javascript:void(0)">西安</a></td>
+                    <td><a href="javascript:void(0)">厦门</a></td>
+                    <td><a href="javascript:void(0)">石家庄</a></td>
+                    <td colspan="2"><a href="javascript:void(0)" style="padding-left:8px;">哈尔滨</a></td>
+                    &lt;!&ndash;<td><a href="javascript:void(0)">金华</a></td>
+                    <td><a href="javascript:void(0)">佛山</a></td>
+                    <td><a href="javascript:void(0)">嘉兴</a></td>&ndash;&gt;
+                </tr>
+                </tbody></table>
+        </div>
+        <div class="province">
+            <table>
+                <tbody><tr>
+                    <td width="12.5%"><a href="javascript:void(0)">安徽</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">福建</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">甘肃</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">广东</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">广西</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">贵州</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">海南</a></td>
+                    <td width="12.5%"><a href="javascript:void(0)">河北</a></td>
+                </tr>
+                <tr>
+                    <td><a href="javascript:void(0)">河南</a></td>
+                    <td><a href="javascript:void(0)">湖北</a></td>
+                    <td><a href="javascript:void(0)">湖南</a></td>
+                    <td><a href="javascript:void(0)">江苏</a></td>
+                    <td><a href="javascript:void(0)">江西</a></td>
+                    <td><a href="javascript:void(0)">吉林</a></td>
+                    <td><a href="javascript:void(0)">辽宁</a></td>
+                    <td><a href="javascript:void(0)">宁夏</a></td>
+                </tr>
+                <tr>
+                    <td><a href="javascript:void(0)">青海</a></td>
+                    <td><a href="javascript:void(0)">山东</a></td>
+                    <td><a href="javascript:void(0)">山西</a></td>
+                    <td><a href="javascript:void(0)">陕西</a></td>
+                    <td><a href="javascript:void(0)">云南</a></td>
+                    <td><a href="javascript:void(0)">四川</a></td>
+                    <td><a href="javascript:void(0)">西藏</a></td>
+                    <td><a href="javascript:void(0)">新疆</a></td>
+                </tr>
+                <tr>
+                    <td><a href="javascript:void(0)">浙江</a></td>
+                    <td><a href="javascript:void(0)">澳门</a></td>
+                    <td><a href="javascript:void(0)">香港</a></td>
+                    <td><a href="javascript:void(0)">台湾</a></td>
+                    <td><a href="javascript:void(0)">内蒙古</a></td>
+                    <td colspan="2"><a href="javascript:void(0)" style="padding-left:8px;">黑龙江</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    ;(function(){
+        initShowAllAddress = function(){
+            var $addressPanel  =  $('.alladdress');
+            var $address       =  $('.goodsaddress');
+            var $upaddress     =  $('.upaddress');
+            var $addresswrap   =  $('.address-wrap');
+
+            $address.mouseenter(function(){
+                $addressPanel.show();
+                $(this).find('.up-down-trian').css('background', 'url(images/updowntriangle.png) 0 -7px no-repeat');
+            });
+            $addresswrap.mouseleave(function(){
+                $addressPanel.hide();
+                $address.find('.up-down-trian').css('background', 'url(images/updowntriangle.png) 0 0 no-repeat');
+            });
+
+            $addressPanel.delegate('a', 'click', function(){
+                var text = $(this).text();
+                $upaddress.attr('value', text);
+                $address.find('span:first').text(text);
+                $address.attr('title', text);
+            });
+        };
+        initShowAllAddress();
+    })();
+</script>-->
+<a href="http://localhost:8080/crm/customerInfoForMT/create?coopId=fe7f5eea-3e07-11e2-8597-782bcb477890">aasasasas</a>
+</body>
+
+<script type="text/javascript">  var currenturl = "om_taking.aspx";
+$(function () {
+    $('#dept').combobox({
+        url: currenturl + "?act=loadDept",
+        valueField: 'DEPARTMENT_ID',
+        textField: 'DEPARTMENT_NAME'
+    }).combobox('selectedIndex', 0);
+});  </script>
+</html>
